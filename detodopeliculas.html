@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detodopeliculas — Tu mundo del cine</title>
+<meta name="description" content="Detodopeliculas: descubre películas, estrenos, clásicos y series en un solo lugar.">
+<style>
+:root{--bg:#08090d;--panel:#11131a;--text:#f5f5f7;--muted:#a6a8b2;--accent:#e50914;--accent2:#ff3b30}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}.nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:18px 5%;background:linear-gradient(#050507,transparent);transition:.3s}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:26px;color:#ddd;font-size:14px}.navlinks a:hover{color:#fff}
+.hero{min-height:680px;padding:150px 5% 90px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(8,9,13,.98) 0%,rgba(8,9,13,.78) 40%,rgba(8,9,13,.15) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 25%),url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{max-width:650px}.eyebrow{color:#ff4b55;text-transform:uppercase;font-weight:700;letter-spacing:3px;font-size:12px}
+h1{font-size:clamp(48px,7vw,86px);line-height:.92;margin:14px 0 22px;letter-spacing:-4px}.hero p{color:#d5d6db;font-size:18px;line-height:1.6;max-width:580px}
+.btn{display:inline-block;padding:13px 22px;border-radius:7px;font-weight:700;margin:10px 8px 0 0}.primary{background:var(--accent)}.secondary{background:#ffffff18;border:1px solid #ffffff22}.primary:hover{background:var(--accent2)}
+section{padding:55px 5%}.section-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}.section-title h2{margin:0;font-size:27px}.section-title a{color:#aaa;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}.card{background:var(--panel);border-radius:9px;overflow:hidden;position:relative;transition:.25s}.card:hover{transform:translateY(-5px);box-shadow:0 12px 35px #0008}.poster{aspect-ratio:2/3;background-size:cover;background-position:center}.card-info{padding:11px}.card-title{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{color:var(--muted);font-size:12px;margin-top:6px}
+.search{margin:0 auto 10px;max-width:700px;display:flex;background:#151720;border:1px solid #282b35;border-radius:9px;overflow:hidden}.search input{flex:1;background:transparent;border:0;outline:0;color:white;padding:15px;font-size:15px}.search button{background:var(--accent);color:white;border:0;padding:0 22px;font-weight:700;cursor:pointer}
+.banner{border-radius:15px;padding:40px;background:linear-gradient(100deg,#1b1d25,#0e1016);border:1px solid #292c35;display:flex;justify-content:space-between;align-items:center;gap:25px}.banner h2{margin:0 0 8px}.banner p{margin:0;color:#aaa}
+footer{padding:40px 5%;border-top:1px solid #20222a;color:#8f919a;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:650px){.navlinks{display:none}.hero{min-height:620px;padding-top:130px}.grid{grid-template-columns:repeat(2,1fr)}section{padding:40px 4%}.banner{display:block}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#">Detodo<span>peliculas</span></a>
+  <nav class="navlinks"><a href="#inicio">Inicio</a><a href="#peliculas">Películas</a><a href="#estrenos">Estrenos</a><a href="#series">Series</a></nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="eyebrow">Bienvenido a Detodopeliculas</div>
+    <h1>El cine que quieres, en un solo lugar.</h1>
+    <p>Explora películas populares, grandes estrenos, clásicos y series. Descubre nuevas historias y encuentra rápidamente tu próximo entretenimiento.</p>
+    <a class="btn primary" href="#peliculas">🎬 Explorar películas</a>
+    <a class="btn secondary" href="#estrenos">🔥 Ver estrenos</a>
+  </div>
+</section>
+
+<section>
+  <div class="search"><input id="search" type="search" placeholder="Buscar una película o serie..."><button onclick="buscar()">Buscar</button></div>
+</section>
+
+<section id="peliculas">
+  <div class="section-title"><h2>🔥 Películas destacadas</h2><a href="#">Ver todas →</a></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="estrenos">
+  <div class="banner"><div><h2>🎞️ Los grandes estrenos</h2><p>Mantente al día con las novedades y descubre lo que todos están viendo.</p></div><a class="btn primary" href="#peliculas">Explorar ahora</a></div>
+</section>
+
+<section id="series">
+  <div class="section-title"><h2>📺 Series populares</h2><a href="#">Ver todas →</a></div>
+  <div class="grid" id="seriesgrid"></div>
+</section>
+</main>
+
+<footer><div><strong style="color:#fff">Detodopeliculas</strong><br>Tu mundo del cine, en un solo lugar.</div><div>© 2026 Detodopeliculas · Todos los derechos reservados</div></footer>
+
+<script>
+const movies=[
+["Dune: Part Two","2024","https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=700&q=80"],
+["The Batman","2022","https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?auto=format&fit=crop&w=700&q=80"],
+["Interstellar","2014","https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=700&q=80"],
+["Avengers","2019","https://images.unsplash.com/photo-1531259683007-016a7b628fc3?auto=format&fit=crop&w=700&q=80"],
+["The Godfather","1972","https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=700&q=80"],
+["Oppenheimer","2023","https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=700&q=80"]
+];
+const series=[
+["Stranger Things","Serie","https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80"],
+["The Last of Us","Serie","https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80"],
+["Dark","Serie","https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=80"],
+["Breaking Bad","Serie","https://images.unsplash.com/photo-1518930259200-8f3b7f2b1f3b?auto=format&fit=crop&w=700&q=80"]
+];
+function cards(data,target){
+ document.getElementById(target).innerHTML=data.map(x=>`<article class="card"><div class="poster" style="background-image:url('${x[2]}')"></div><div class="card-info"><div class="card-title">${x[0]}</div><div class="meta">${x[1]}</div></div></article>`).join("");
+}
+cards(movies,"grid"); cards(series,"seriesgrid");
+function buscar(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ if(!q){cards(movies,"grid");return}
+ const found=movies.filter(x=>x[0].toLowerCase().includes(q));
+ document.getElementById("grid").innerHTML=found.length?found.map(x=>`<article class="card"><div class="poster" style="background-image:url('${x[2]}')"></div><div class="card-info"><div class="card-title">${x[0]}</div><div class="meta">${x[1]}</div></div></article>`).join(""):`<p style="color:#aaa">No encontramos resultados para “${q}”.</p>`;
+ document.getElementById("peliculas").scrollIntoView({behavior:"smooth"});
+}
+document.getElementById("search").addEventListener("keydown",e=>{if(e.key==="Enter")buscar()});
+</script>
+</body>
+</html>

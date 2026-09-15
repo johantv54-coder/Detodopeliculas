@@ -1,0 +1,2724 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://detodopelicula.netlify.app/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=7f0a78b6-27a8-4eba-94bf-f7c69d1ac638
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=7f0a78b6-27a8-4eba-94bf-f7c69d1ac638">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detodopeliculas — Tu mundo del cine</title>
+  <meta name="description" content="Detodopeliculas: descubre películas, estrenos, clásicos y series en un solo lugar.">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;%F0%9F%8E%AC&lt;/text&gt;&lt;/svg&gt;">
+  <style>
+    :root {
+      --bg: #08090d;
+      --panel: #11131a;
+      --panel-hover: #191c26;
+      --card-bg: #141620;
+      --text: #f5f5f7;
+      --muted: #a6a8b2;
+      --accent: #e50914;
+      --accent2: #ff3b30;
+      --border: #232634;
+      --success: #10b981;
+      --success-hover: #059669;
+      --warning: #f59e0b;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER & NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 5%;
+      background: rgba(8, 9, 13, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo span { color: var(--accent); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .navlinks {
+      display: flex;
+      gap: 24px;
+      color: #ccc;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .navlinks a { transition: color 0.2s; }
+    .navlinks a:hover { color: #fff; }
+
+    .btn-admin-nav {
+      background: linear-gradient(135deg, #252836, #1a1c27);
+      border: 1px solid #3c4155;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-admin-nav:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(229, 9, 20, 0.35);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 640px;
+      padding: 160px 5% 90px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(8,9,13,0.98) 0%, rgba(8,9,13,0.85) 45%, rgba(8,9,13,0.2) 100%),
+        linear-gradient(0deg, var(--bg) 0%, transparent 35%),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;
+    }
+    .hero-content { max-width: 650px; }
+    .eyebrow {
+      color: var(--accent2);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 76px);
+      line-height: 0.95;
+      margin: 12px 0 20px;
+      letter-spacing: -2px;
+      font-weight: 900;
+    }
+    .hero p {
+      color: #d1d3dc;
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 580px;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .primary { background: var(--accent); color: #fff; }
+    .primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4); }
+    .secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      margin-left: 10px;
+    }
+    .secondary:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
+
+    .btn.download {
+      background: var(--success);
+      color: #fff;
+    }
+    .btn.download:hover {
+      background: var(--success-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    /* SEARCH BAR */
+    .search-wrapper { padding: 30px 5% 10px; }
+    .search {
+      margin: 0 auto;
+      max-width: 720px;
+      display: flex;
+      background: #141622;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      transition: border-color 0.2s;
+    }
+    .search:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+    }
+    .search input {
+      flex: 1;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      color: white;
+      padding: 16px 20px;
+      font-size: 15px;
+    }
+    .search input::placeholder { color: #767988; }
+    .search button {
+      background: var(--accent);
+      color: white;
+      border: 0;
+      padding: 0 26px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .search button:hover { background: var(--accent2); }
+
+    /* SECTIONS */
+    section { padding: 45px 5%; }
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    .section-title h2 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .badge-count {
+      background: #1e2130;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 3px 9px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    /* GRID & CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-7px) scale(1.02);
+      border-color: rgba(229, 9, 20, 0.5);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+    }
+    .poster {
+      aspect-ratio: 2/3;
+      background-size: cover;
+      background-position: center;
+      background-color: #1b1d28;
+      position: relative;
+    }
+    .poster .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .poster .play-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      box-shadow: 0 4px 15px rgba(229, 9, 20, 0.6);
+      transform: scale(0.85);
+      transition: transform 0.2s;
+    }
+    .card:hover .play-overlay { opacity: 1; }
+    .card:hover .play-icon { transform: scale(1); }
+
+    .card-info {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #fff;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .card-badges-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .card-type-tag {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .download-badge {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* BANNER */
+    .banner {
+      border-radius: 16px;
+      padding: 40px;
+      background: linear-gradient(110deg, #1b1d29, #0f1118);
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+    .banner h2 { margin: 0 0 8px; font-size: 28px; }
+    .banner p { margin: 0; color: #a2a4b0; font-size: 15px; }
+
+    /* FOOTER */
+    footer {
+      padding: 45px 5%;
+      border-top: 1px solid var(--border);
+      color: #8f919a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    /* MODAL BACKDROP COMMON */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* DETAIL MODAL */
+    .detail-card {
+      background: #13151f;
+      border: 1px solid #2a2e40;
+      border-radius: 16px;
+      max-width: 780px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      padding: 28px;
+      transform: scale(0.96);
+      transition: transform 0.25s ease;
+    }
+    .modal-backdrop.active .detail-card { transform: scale(1); }
+    .detail-poster {
+      width: 260px;
+      flex-shrink: 0;
+      aspect-ratio: 2/3;
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .detail-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .detail-close {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .detail-close:hover { background: var(--accent); }
+    .detail-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 10px;
+      padding-right: 40px;
+    }
+    .detail-badges {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
+      color: #d1d3dc;
+    }
+    .badge-accent {
+      background: var(--accent);
+      color: white;
+    }
+    .badge-download {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .detail-synopsis {
+      color: #b7b9c6;
+      line-height: 1.65;
+      font-size: 14.5px;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .detail-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* AUTH MODAL (PASSWORD) */
+    .auth-card {
+      background: #131520;
+      border: 1px solid #2b2f42;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
+      padding: 32px 28px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+      position: relative;
+      text-align: center;
+      transform: scale(0.96);
+      transition: transform 0.25s ease;
+    }
+    .modal-backdrop.active .auth-card { transform: scale(1); }
+    .auth-icon {
+      font-size: 44px;
+      margin-bottom: 14px;
+    }
+    .auth-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .auth-card p {
+      color: #9ea1b2;
+      font-size: 13.5px;
+      margin: 0 0 22px;
+      line-height: 1.5;
+    }
+    .auth-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .toggle-pass-btn {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: #8c8f9f;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .auth-error-msg {
+      color: #f87171;
+      font-size: 13px;
+      margin-top: 10px;
+      display: none;
+      font-weight: 600;
+    }
+
+    /* ADMIN PANEL MODAL / DRAWER */
+    .admin-modal {
+      background: #11131c;
+      border: 1px solid #282c3c;
+      border-radius: 16px;
+      max-width: 880px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+    }
+    .admin-header {
+      padding: 18px 24px;
+      background: #171926;
+      border-bottom: 1px solid #262a3b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .admin-header h3 {
+      margin: 0;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .admin-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .admin-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 12px 24px 0;
+      background: #141622;
+      border-bottom: 1px solid #262a3b;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #8c8f9f;
+      padding: 10px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: #fff; }
+    .tab-btn.active {
+      color: #fff;
+      border-bottom-color: var(--accent);
+    }
+    .admin-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* FORM STYLES */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group.full { grid-column: span 2; }
+    .form-group label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #c4c6d2;
+    }
+    .form-control {
+      background: #171924;
+      border: 1px solid #2b2f42;
+      border-radius: 8px;
+      padding: 11px 14px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.25);
+    }
+    textarea.form-control { resize: vertical; min-height: 90px; }
+    .poster-preview-box {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #171924;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px dashed #303548;
+    }
+    .preview-img {
+      width: 55px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #0d0f15;
+    }
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    /* TABLE IN ADMIN */
+    .admin-table-search {
+      width: 100%;
+      background: #171924;
+      border: 1px solid #2b2f42;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: white;
+      margin-bottom: 16px;
+      font-size: 13.5px;
+    }
+    .table-responsive {
+      max-height: 420px;
+      overflow-y: auto;
+      border: 1px solid #262a3b;
+      border-radius: 8px;
+    }
+    table.admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+    table.admin-table th {
+      background: #171926;
+      padding: 12px 14px;
+      color: #9ea1b2;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    table.admin-table td {
+      padding: 10px 14px;
+      border-top: 1px solid #1f2231;
+      color: #d8d9e2;
+      vertical-align: middle;
+    }
+    table.admin-table tr:hover td { background: #161824; }
+    .table-thumb {
+      width: 40px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #222;
+    }
+    .btn-action {
+      background: transparent;
+      border: 1px solid #363a4e;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .btn-action.edit:hover { background: #3b82f6; border-color: #3b82f6; }
+    .btn-action.del:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* EXPORT BOXES */
+    .export-card {
+      background: #171926;
+      border: 1px solid #2a2e40;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .export-card h4 { margin: 0 0 6px; font-size: 16px; }
+    .export-card p { margin: 0; color: #a1a3b1; font-size: 13px; line-height: 1.4; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1080px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .detail-card {
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+      }
+      .detail-poster {
+        width: 180px;
+      }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .export-card { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 650px) {
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0e1018;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+      }
+      .navlinks.open { display: flex; }
+      .menu-toggle { display: block; }
+      .hero { min-height: 560px; padding-top: 120px; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      section { padding: 35px 4%; }
+      .banner { flex-direction: column; text-align: center; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+<style type="text/css">#screenShotContainer{cursor:crosshair;left:0;position:absolute;top:0}#toolPanel{background:#fff;border-radius:6px;box-sizing:content-box;height:24px;left:0;min-width:392px;padding:6px 14px;position:absolute;top:0;z-index:9999}#toolPanel .item-panel{float:left;height:24px;margin-right:15px;width:24px}#toolPanel .item-panel:last-child{margin-right:0}#toolPanel .square{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHfSURBVHgB7ZpNboJAFMffY2hK/EhYWl3U3sSeQG/gEeoNxBvYI/QGeoLak9SVdSeNxlKFeR2atPEjDGiaCNP3S1jAvCHzG4ZhwR+AYRiGyS8I5+DUmnBpnMAH3/fhRLILO7WWEFZXdekAkAu5AJUwjaJIDiCYTzP1yFJklep9RPAgxxCBJ9ezQVqdSCsogmyMGmMLr6pA2+WLtk7XGL+rahm/QoFAlPfhaj5Jard1nZVs//iG9GiHNIQLEwnhElJHLeW9MRLF+wxM4BxEubEQ5Tr9HHal7kHOsCuN4e4Y1bHQ1VuJLW7TPdyNw8/tCHJGGEaHq80F5+Y2qT5ZOAiOPz3C1s5eEbDgn8HCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCpsPCplN8YSGO/2M7H+9J5Zof4nHuCfeCX7aAHuQMi6h9cEkbWNOGWojkGBG7v+eAPatU9+V2O1Yze3IK7q+xhHhAoMOHoI1laGNLdqXWIrKeoUBEkbzTpfK0wTS5WU3FdTWelBYUAEQYyPWb9gmnJvHkZjkpgnQsG65mXmodZOU7lYeeeo/bGEeDcgCpDUqNZYQon3Tpu13Oiw+7rusEzsWlg4wJWoZhGKYofAHzGYh5VvrALQAAAABJRU5ErkJggg==");background-size:cover}#toolPanel .square-active,#toolPanel .square:active,#toolPanel .square:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGzSURBVHgB7ZpBSsNAFIb/GYq6zA3Um+gJ9Abisoi0nqDJCVSKdCOIN2hPYI/gDfQGVtyUQjO+qRaaNDOZFqGT5/sWhWTmlfmGycsiPyAIgiDEi8I2DMwRds0UE9yoCTYkXLhvTtDCBeY4p6oEMWBIWmGIGTKSfw8pCRN+MD36TREzmtbXVlndtHrhJsguCZD2C9/Ss7qHNzSJHKe4VmPXcMtXS7K9irv3tJN32DU59ZGc+okurVFTnwHGrjK/MOgPi2S4Uini4ZWaaUKSnZV7ds2XrgLtGqDjbDtxuRsPERuttdOW4NEcuqa7hQ8qXj37+EDD0fhniDB3RJg7IswdEeaOCHNHhLkjwtwRYe6IMHdEmDsizB0R5o4Ic0eEuSPC3Gm+cF7xHfsLn67pbuH2IvdUDH7N0EV8nJWuvYE1f8bDYAS1CIksr7sYmAnt6oi2auMU3J9j0FmsqYg3luGPLdn0ncYLmoTG8e/pdAz7sHmnHLXptojIfLKWsOhh36Rreaj4CIpUhYdLbYJ2jpQqbJOII1z601SHdAqffem7VbaLDz+ZBNMIpNthCVpBEAShKXwDKrBaATx5xUUAAAAASUVORK5CYII=")}#toolPanel .round{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAVoSURBVHgB7Zq9UiNHEMd7ZiWBETbrq3IVB8neG4jM2UHmzFzo6LgnAEcOBU9geIITkS9DhI4QT2De4NaBT1Q5sKhDcMdqpt2zaxntaPZL2pWWK/0iGM3s6q/u+epugAULFix4QjCYBdXvGlCzGhy5wxmuITA7eDn2JLIbCXgF3sAF7+8rKJhiBNu2zT9/tcc4/AjAGwBopx+MHRpzKoTowKdrF3ImX8HL69uWxZr02G3IA8S2kHhCwjuQE/kIzlvoGNgRAt/kYfHpBCvX9epNmosHSV0R0WUMXHql+9gINjC0aU436Iskuj2953jQ7/4MUzC54OV1x+L8gp7gmD5GgB49vA0gL0X1Uxt6vV7i8yzYDryEvY7p6Qohdya19mSCfRe2zkyLkRLKGZwMKnfHiSKjn++LR2RNxphj6NFjTL4a3Gaf25kFW/VN+vWxZXwYg6OphBqorG4cIkLT/KncE/3rU8hANsG+ZcmNNRDQlcBfQf+vYvZRsjjn7MJkbbL0ThZL87QdAzdTbqyDp7J6v1WYWAXNV1lb2qJftj32duRn6rtBSlJb2FrZeD++QOGp6Hf3YIZY9ectw6LmiurdVpqpZEEKeH3zV5qfP4Qa6dcWd92fYMagd9vmtdUXJLox0mxbsrIsvdvfk8YnW9h3Zf4+9FI1Z5Ub57g4ZcJ2bP7w+Q99TqeZz4lzmE5Qb/U2KXBnbmIVPbdnMVokNdQ2ljQ0XjCtyvpxUW09RRzqs+LRIknb1VG4lW1XVtV3jiZWMJ2k9kf/V648uP1wCCVB1mrHJDLkaUlWjhaslnoGu6NNdJY9gjJBrk1n9JNwI3kknfGjhkQKpj13W28TAjpQMkxWVnfxqP4xLi31va5Vhrk7hm9leT7aFAQezMQI1u+28hJKCmO8o7U0ovqaBdc3xwaU0Z2HiGpVP3LafhzNgFGwxaWjNfVK6c5DfLdWwYVHrFotvWAUuktg4dHEaWEM3dH/afV2TP14xOjwso5wAyWHLPxnqIGZI6VmwSjDnRn7B54YDNiaqT39ffgLIcKl+fwuBhOiW5SOwcZpGOHSqAk2LwClQp+zyIxGMwqme6artThQenhoZ2EwMO4sRsECQO/sxB3I544f0wpbWHjhbWqI2aX9gFzYJSyvvgslxXTRicpExl0etAH4EkqL/t1UBtJMpGCUcK417ZbSrYMQ7V64ESOD85GC5dJSS2uiwNnKAZSMrPf2aJemA7nuGhTP2i+dlRGb2v/ncRed2JMWHcj1kE6prMxXNpp6coBxPI4bkxiXpkj/hR4M4OBtef3i6zFiMcTL/cR5v7sTNyzxLG2wMkions3Vtendfm5aw68SSCAx1SIfbl1r6Ztv6c/vR1/JZXUdvY/nMAcs/uw38s3R76MMcyLvrt8ljU2XTItIbRAt0f+Q+KvmCa9vvGXaNuSnfvrdF6nGp+mkVmwpKb0CYwfyPWvl+WzcW9WTGMVCz0/9pCRTQlylMSgfe2H4aKq6i0QoqGghnpnqSbImxFOlS4eo+cxrdQqlMP1cbVOG/oBVv6Z05sf8wrnKqvzZL5zBOxI75kUc2JtBv9vO8siJiloCS5uLWgiXHns0VSWdEvqwsk9rxkF04cyMilr+J6buYoQWveIylXi1DnjLuxbwl4EHmYNw/gKl5uxMy5ZGqKxuHlNIdD+5p1rw6AaGFONmo4sfOhRxdBJ+uOAJtPUMKveH0+Sm8yo9dILEeXGlh+oANIkL6+Qj+D/8uS0pp6ylWScnP6FDiikffiwjfJ3F6kG5Il6pu7hcum8VUVYxkwLxKu2jkvJVKoXDg2LSteDleCMpukh7qcvBuvKKrPVasGDBgqfIvzowNmTgJi8YAAAAAElFTkSuQmCC");background-size:cover}#toolPanel .round-active,#toolPanel .round:active,#toolPanel .round:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASrSURBVHgB7VrrUdtAEN6TB5Pn4BKUDuwKAhUEKsD8jJMMUAFQgfEQw8+YCoAKgAqgA5QKYn4SYl1272Kw7qGHJVlHRt+Mx/b5LN2n3dvbF0CNGjVqvCAwWASGvA0TaOPdfGjACr63xDiHMY7f46db8CCAL+wWSkY5hPu8BUvQRRKfIBREW6n/y+AKH8Qp/Mb3XRZAwSiW8BFfRQnu4YJXoQgwOEcNGMA3dgUFoRjCRRNVQVJ/gK0iJJ6PMKnusiC6k2J2gPMCvGMwM9bCsRaOtcXnJDA4hB7bhRyYn3Cf+9CES/zkW2aM8UUqeQ3v8X2LjWOvd4LXC1FDSEsYbMbMDHB/r80r7fkIkwozOLMYozEufADvUBpJJG2YkmdCe3zLPTbm2dvZCR/zTVzEyPhbCAe5iJpwxPfR2u8Zf2N4EvTYKWRANsIkWU+osXoV2p8bpZ2jJHGO9zVJO0T1ziBpL+1EsWdJjVXQmfkaOqU6DZ9xvz7gPeiYUuHhmmhtKZFewkN+B6qBIrJfWRcWie98ZDBqZMg6aMgSt1I6CR/zPujW+HzhZAl0T3rQUfjieEyBZMJ9sX+i5yzt2TfoCFSFR1xP9DwHsUayMQlIJrwMP7QxhoaiSEucFaS6ZCRVNJKlHE+YnpjuLh4II1I1yEjSMTgLWmuClOMJe7Ad+c5ECLcPruAPnvnSo3tGgpTthKWpX4+MceWJVg1SbfLqZkFSJh/fAjvhpiHy8TBqcQ0mKVMsboGdsH7WjZzYuyqkAbuIjFHiwQI7Yd1YXYOrCBXN4yLcNMJMmHJQ+swrcBUTzeVsGTmAjXCoeVVjJ9V5CulSBpGxCWQgDMpkBqVnE3ND9byYOTFhIxw161ykUt1GCD8j3z1zyshMWM9k/IKXhxXTYPp4+D+BmTCH6gKDecE0iRq3oU3CY+ViPrgOdRuGZqHZJBwo331wHbqzYTxZzIQb2mQ/ziGvHDLQia7PU4T2NGyCTMipYdc6uApToGNJKsYFD9E/NOAjuIvo2pjdDbYTDpUIhGJjF9VaqnM3MqYn+Z5gJ/yoVRdaqDo74Boyxu12wuSQ66qx7aCU1ZTORVygE+9pTbSUjltSHnIi60fGQpEBsSK58nDMLw3JgM4i+jFiIcu1d5Ex0sgeW4v7W7IvPTEm7s4qVW26d9NY1EssDiQTpsqcmhkkNWpCH6pCUxQHfGV0kCZJka6YJlsbbgwu5ghVe7EllyEnst3IGAX/PfYhzd/TVw9lVf4GVBeOSpiy4aTcCEuqMWlVV/lljHraSZuCKqYgnrPvIhF9TMg1RW3a134rrSBOkBc2qbC0mCc8VckyNUiqdM2m0CzfMGMra5/H/E0tnnjiJksdABXc8nTSEdFX6ORMRFnU1jizoKaWKeL6Lp4xAkrgpyFPJCkiW8JAYILvtnZFJnq91uZNG+fvxDvih1qV0QQujIsMO9lM6EkPTD40H5IxwEL8fp7adDGthyTtCZ6NrKTWQy4aTg+K6LkshvAUcm+TtItJFhRIdIpiCU/x3Ea4mVHqVAkktb+At7j/S2irKIewCipsyXpV+19FYJpSvRfZRUoaUh6t6oCkRo0aNVzDX2qpg7pu/G77AAAAAElFTkSuQmCC")}#toolPanel .right-top{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGcSURBVHgB7dk/TsMwFMfx33M6RCoLG4Kl3KRH4Ah0ZOMKnABu0HIDbkC5AUfIAnTMQFGl/jF5MkMRKpIT59mu3met6qev0liNAyillFJKKRUEQVp5NkIIq0WFFuSCm9DCmOdm4ghhVES7yeZzMff5koGQoqBpwFg2stZM4UksGJZqJEAs2BDdWWsrRCa+aZWem9aabwXQ+MDH1Xb5fgkPAwhbeeyuZng+ba7IGAHJ3cOefmKvEViSwYdj7SM6Si74UKwBTbZbO0NHSQX/F7tevs0QQDLBErFuvQRIxbo1I5OMdetGJB3r1o4kRqxbP4JYsW6GsJixbo6g2LFulpAUYt08iSGJxLqZfQ8IGVuWr82z8f7JyRyeej0A6OXKNgcIg4JuQVRvBl8PqGuvo6PeglP6Ge/rJTjVWBY8OOVYFjQ49VgWLDiHWBYkOJdY1jk4p1jWKTi3WNY6OMdY1io411jm/V/aDC/uc41l/g8P1l79XSSPWOYdTPT7lWdOsayAJ1ucvBiD0+YFd0Vmd7NZfjxBKaWUUkopdfS+ASmNvgIGrsXnAAAAAElFTkSuQmCC");background-size:cover}#toolPanel .right-top-active,#toolPanel .right-top:active,#toolPanel .right-top:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF3SURBVHgB7dpBSsNAFMbxb4roRvAK9SY9gkewSymCR9ATVBfq0noSewSPkCP0ANJxvropaISXvLx5A+8HbUpDAn8yCWESIIQQQgghBBUJ1l7zHBpuUocB7ILXJfQUH+XXHDo67LHEbdpKNprByhneoBeLw75mh32K2AVn7OCAXTDwUE6gDpX5v2jlMmwzFj1rO6zSJQROYE1ydX3OPEcXUGQ5pGV+Yq+hzGdwX2zGO0byF9x/ZJcleIORfAX/F7tKGyjwE2wQSz6CjWKpfrBhLNUNNo6lesEVYqlOcKVYsg+uGEu2wZVjyS7YQSzZBDuJpemDNWO/8Fm+j2dOthCadgJgiiPLCYQ97spnh3M8YplEU0fTBTsaxsemCXYaS/rBjmNJN9h5LOkFNxBLOsGNxNL44IZiaVxwY7E0PLjBWBoW3Ggsye+lX/IajcaSPDjj6o9/m4glefDvR57NxJL86WEqgXvcl+VFWT5JXzkIIYQQQgghtOkb2FSXUxZQW5sAAAAASUVORK5CYII=")}#toolPanel .brush{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALESURBVHgB7ZlLbtswEECHpOykcQoIBQok6UY9QZsT1D5BkhMkOUpPEPQEcU+QLLtzdt26J6g2RQt0US0qRLBCMTMGHMiybJPyjwT4VtJoCPOZ1FCiADwej8fj8Xg8m4GB5YjOuytQxZkC+MgYxNjh4ZNUXyD7E0MD7BUOw1Dkr+6wi92aqzGH/CJP/w7BEDuFUTbIDwY0qguyEpTumUrbJ6wnO8FYmoNNzJHF8wSguMaD+2qLAlqDVuetzp8zxp4RXiBbAOtB+ms8iqJz3MduX1ZaJ1IWpzqFTIANaMqOY/n/e94+fI/S5dx9xoHhtW/Lfmr3U9pAdoJMf19hxtdyjAE7Aw12K7ygQDGurutkJ0ip+pVQBBrsTnhZNS7YDewfRXPbCn5TDilQWpV6N8J6S08kBB/MSM9pi1PaUuEF96xSKq5kT0vPbatirNKfQYPtLkvLCpSUCedswBiLKi1jOcovgnbrtk62kKqn+2y9PWHdaoyjOUd6BlNZYjvCpkuPhnQTWWLz93CDdZYkivbeKebUFqKmssRmhZvIvpDUdm4VWWJzU3oV2QXVeBVZYjPClsoS6xe2WJZYr7DlssT6hB2QJdYj7IgssbqwQ7LEasKOyRLNhR2UJZoJOypLmAs7LEsY71oG4s13V2UJo5cH8fr43GVZwkhYSea0LGEkzJj6NB3BvWGHZAnD92Fe2SlUTskS+sJhFGJ3w3JIjmS9sKWyhL5wls3uIec1nyktliUC3UTOeXc6oh5eDlES0lbEg6DLc3ZpqyyhLYxPKB/K5wpYKDont7h53mU5i6A9iU9jkyyh/aQlDk5+YnYEBtgmS+gJY8ES+egfGGCjLKE3pbMsBLG8vtG3Idw8f1CF+lHsPfYhTRKwDJMpfYfZ55PzshwXavgUZENI7BOsYvS2FBwedZkSSd5KYxfkPB6Px+Px2MUzbTi7WUXRE4wAAAAASUVORK5CYII=");background-size:cover}#toolPanel .brush-active,#toolPanel .brush:active,#toolPanel .brush:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJySURBVHgB7ZnRbdswEIZ/qUFbBH3ICN6g7gR1J0g6QZPHon1oR+gEQZEGeUwyQbpBMoKzgTaIXxMgZu58cGDLknwnWfYR4AfQtiiS9meSR9oEEolEIpFIJBL9kME75+GYPuUhAob0XFDOGI/4i99ZgRb4FT4NB3iHGxIdVdwtKH3Fj2wMIz6FWfYtbunVsKHUhNIXq7Q/YZ3sHLN0Dk/Uy07wjBPqnv+l/ANKtzTPNV/ODD893CS72Iv/whV96m8rZZ7wSRPIfPSwVpb5mR1TILsuleP6v6Bg98IW2TnV0odQsFvhpgA1pTnbFIwCrko5AyjYnfC6aJzjlMoMauvy/WVUkXo3wrqlZzArU5aur+tUuGnOytZxkWXpurpcL8cfKNjusrQuQOX0HOh+WJmPBXgrCVyiSjajut91e+vtCWuj8QX1ZrX0KkZZqbINrEuPRrqFLNP/HG6zzrLEI+2c6gJRS1mmX+E2suvoICvV+6KLbFM07iArTfSBU1lpZtM4lpWmNolzWWluU0QgK01ugkhkpdmuRCQrTXchMllpvi0RyspbtCFSWXkbKxHLMva9dMSyjE34LBwhYlnG2sNRyzI24Tf4XMq5jkmWsQkHwz+FDmUZvTALyOHVIuPasg5lGb3wXsV/yFXD2bEss2coO1q6ynD3+lokB7PTejnZcynL6IVzfFy6DjS8L8IlnQGNMD/XqdrGOJJlLD08XLmerjmldybL6LaWMmQfYMGhLKPr4fc0fKeqkgWlOxru99in48yTbAJn6H88nIcbejxayCkwlwu0PH2g5FCwjO3X0lkYzQ689kk2ArlEIpFIJBK+eAGdRGPGDQz7SwAAAABJRU5ErkJggg==")}#toolPanel .mosaicPen{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAOtJREFUaAXtmckNwjAQRcNSBg3QCkVRIXQBZxogghlxQ7Zl8YKSSG8kX2bx8r4PtmYYNAlIQAJLJXCOjT1jvGYet1j/FKNom6L348zN7xrx3tC1N7GSdwz/I8ahEq+6pyJfXaAzcIm83EvRtkXvipweYG6xVEAFIAGvEASIy1UAI4QTqAAEiMtVACOEE6xegdb58w2eb3Fqf/1XrF4BD0DvF61XAUqQ1qsAJUjrVYASpPUqQAnSehWgBGm9ClCCtH7fmOAesWwuTPEnaCzTFRq7sr6Ssq2T7Z2pPiS/zpOdomx3aRKQgAQWSOANmudym8Lt+O8AAAAASUVORK5CYII=");background-size:cover}#toolPanel .mosaicPen:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAXxJREFUaAXtWU1Kw0AUfm90UeyuIih4Add6ATeinkP0TIrnqOLGC+gtFASxu0o2zpgpSUngvaTtS6YtfFkl37zf78tiZh4RHjAABsDAOhlgLfnBS3btvX8MIRxpNilwJv50O+72+2IwlvLtSmDEiuIPtfVlcGZ6X8a+ZhvoxP/5hxw7ruHFh9pAhfkxDfhucr73IQVowkZP0xDXfy6HZ012TWv7z9O3EOhUs3Hawhxfsfi5f88vrQ2swnzPNdfCtzZQs97ADzSwblGgABQwMoBfyEig2R0KmCk0BoACRgLN7uqBptwKmzN0FGByNRRr3fpfSD3QROLiScpyGClV1NhbRJwyhma79QqgAU3aVDgUSMW0lgcKaMykwqFAKqa1PFBAYyYVDgX6ZHr0+iteqVdzbqwCs+KzcF8tVnpXt9NxMkL5cCHez0uOi2D5vf7sadsSi7GywpkoMPOXaJODagNxrBMnI03DBS1ol3gs3jl302VMxAIDYAAMdMfAP+EdVKaWg/p6AAAAAElFTkSuQmCC")}#toolPanel .mosaicPen-active,#toolPanel .mosaicPen:active{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAV9JREFUaAXtmU1KBDEQhauiC9GdIih4Add6BhnmHOKhxHOoeAY9hjAgLkfcTGo6Mo2ZpivW2F3GgZdNJ5VKVfK9XuSHCAUEQAAEahJgLfnx0+c0xngnIqeaz1/Ymfg17ISbt6u9+758u33GZFtN/kTr38TOTC+b+K/5Cp3HRbxtbGdr9lVDXcA3ef4gkv2+wVbb++Tg0urb9Tt6nD+L0EXX3rZDW9G/wyavxx2nx7CAcRJ5RcECvMha40IBKykvPyjgRdYaFwpYSXn5QQEvsta4UMBKystP3U6PmfDwYS6/jddspYtl63+hogLpJDXkMDKEfBF71rn1CmABmZpVqlCgCvYsKRTIYFSpQoEq2LOkUCCDUaUKBapgz5L+cwXS1X65qNvp9DJCzeNCup8vh9B7fzqM6CPbnq+rfWHmWWvpftUFpGed9DJSelzoBvNop8mHEK49YiMmCIAACAwnsARsm0C5E2sdIAAAAABJRU5ErkJggg==")}#toolPanel .separateLine{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAA2CAYAAADgQzjYAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAApSURBVHgB7cixEQAABARBr3H6NEJ9IFWA6C+6WcgUWQ6F7aucCATCLzSr6QQMe0nWygAAAABJRU5ErkJggg==");background-size:cover;width:1px}#toolPanel .text{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANiSURBVHgB7ZnfUdtAEMZ37zAQlMyIh8zw5yGmA5egVBA6wB0QKiDpADqADuwK4hLoAL8k8BY9xEyIo7usTAzW6Yyc094lk7nfDMx4Ldn+dKvdT3sAkUgkEolE/hYIgRFbe6eIOqOvHheduxPI8xz+V2Sy35fJnp7/iWT3DAITdIXl1t41fWN3IZTTKh+EXGUBoUj2e4bYklTcv+hDQIIJlqCPbXEU8A4CEm6FNWT2NzBbe7mTQSDCCN4kQfV0fkRpPIRABBEspTh67n0EPII0TSEA/gWn3VJIv+koOU2CrLJ3wXI6rQnRSp/Uj1TPZgEXAVK6LkRpPSDZo2oUM+i87oFn/Are3OnOhFQgod9vx2QvP5qHi07He1p7FSzQVn31Zfn/57fbEV2MisNChGPwjFfBiGgKyIvJ7cX8hdb63Hg/9d2T/Qm2W8nB4guFODBP0xpPwSPeBNusJKK6rAQmn6+sxctjT/a3woaV1KDHD/etcZiCoRkTP7begye8CJavdg8t6Ty0Has2Ni5CFi8/K6yw9gSkCm1/2M/HuQa4NKLeihe/4FnvrVpJSuersvcuO0VgEax4sQuWUmZmDKHWfio83NthipeHlK5byaKAUdNZoYoXr2CbldR6+Fw6z7EVL4H80xBWwVYriXqw0smW4kWve9zFi1Vwk5Vs/DGW4sU9DeETbB/jrLa6vymLF63q1WKMexqyBkzYxjg09O7JZPcT/BHYnSXzE7NRroKcZWjPNoi3DNkZ0aNicvMWGGBJ6SVWkhG+US7PPWyxktxwFa/2KU29l+7f68UQ3YE59d9W+0VU8btGiGUfqnXRerCSlSJDV1GdFHertyMbtK36gZ6aFv00S/FiSGk3K9n4qevrNWEc+1DtBLewko2Q8/Ixym0lWAjRrwVXtZIr4GOU26pomb23HOOoyc0BMCKT/a/0yYtOi+zql21wxH2FLVaSbOAImOEe5ToLtlpJcyrJAPco1zmlQ6Tz43fN/Hi1OFJP3nbpyU4rbLWSGtlX9/GjGachbildYH1HUKkL8MSSUa7T9qqT4HISYURGLL13GUtGueCAk2Dqj+NqRHtL5zmqKM6oYo+ffgOcgwNuRSvtpnJ6X1q/N3TFhtPJDcvDeSOzBxXISKx12yYSiUQikci/zS+amzngvBJLrAAAAABJRU5ErkJggg==");background-size:cover}#toolPanel .text-active,#toolPanel .text:active,#toolPanel .text:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALxSURBVHgB7ZnfcRoxEMa/498zqSDnDijhOkg6CK+Jk0mowE4FNsMQv5IOSAVxCXQQOgh5tRMUifPZ3GnhjLS7ftFvxnhOcMCHVrufVkAikUgkEomXIoM2N+YCBoX9W+MOE0yyDRTpQZO5GWOLy8frAf7Yxy9QpANdLhrX73BlhlBET/DcjOxj3hgdoo8xFNGc4c+gv8EbKKIpuCBHXQKbmQJK6AguBeU4/C3eQgkdwR2bnI6jlrzkBZdCxi2vGqKrM8vyggeEEGMNR5NeaxSwIC84I4R0sbTjt7Uxl7zK0iWKrOArk++E7OOEvs/W+IevxB3iYS0ruE+G8/fd/0/ZrX1s+mi6VjMiKzjzBGxwni0er7aYNp4fStdkOcG0lVyi/ulL776u57dZkZxhPzy3D+FccZ6tyOQlWJMlBRe1q8zuf8t1W2eLH97YQG7LKCN4ZlyyymtjhhDmuMcCislLRjC1A+rgmnyt63g0Q10wefELdrXXt5KrXe09jFry4hc8ILeB06P3uLWtlLz4BVNWstMQQ6GUvHgFU1YSVsjxcC6hkxd7N4RXcJ/0wks8Bzp5jbiTF6/gNivZjv/jMHdD+ATTbZznzW5FaUxWjVHWbghfI55u44zwzfzEKWztj1Y/D6lauddggPPkoSDGRjaJnQZ1+FMaGRbBPCFNWUlOGFu5PII1mulMySv+9NDV3gF+NUY38GvqqeTee97hLPa0MX4N01ZycmI58pmZSzur+36aJXnFh3SolWzjLyGMYenECY6xkm240BVo5cYJ7pEnCqeZjWMItHLjktbcuGSV773bGh+yM3AyN7/h1u8Tzq6+QiDhM0xZScOwdpswt3LDBVNW0t/txMPcyo1Zw0Xt6lBXMhbmVm6YYLoryT+7FYzdkDDBHbL2LiAF3Q0JOl4NDel6LaxOBKU41MoNIEywW6/7SIZzRc86r/rnThFAWB12CaO/s36v4ZzVx4xlr9rKjXV29zZhSSXIRCKRSCQSovwHybzXUxgaB2wAAAAASUVORK5CYII=")}#toolPanel .save{background-size:cover}#toolPanel .save,#toolPanel .save:active,#toolPanel .save:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK8SURBVHgB7ZpRTtswGMf/tgsrpUzRnlqeshtwhPYG2xF2grGnPVJuUE6wM+wEYyeAPe6J8LCBtIdFKmhdS+PZliaaVK0TJ3ZK8E8CtV+b2L/Yce3PATwej+cJweCaIAgoffWR7XbfJKz7HQ93MRzSgmPYrHMBgpCLf4zhaAEM4RACl7R7IWP0ajm0WPAQ05trOILimeGFm44XbjpeuOl44abjhZuOF246Xjg3YiGv/lxTslwjYbrXf8/m+1ds3vlNO4cncESq3L3+MQwoLhyEAaFkDHB1lQnByIW0LCNVLiUnJi1t2KVJKg9lW1rJijIyYaNuXVw4jmKO5DQbtiW9RlaWd4o4LpwANGrh5P5mrApcrUSl0ptkH+5+jmCA8SgtC7QpbUNWnRclsCVtS1adGyWpWtqmrDo/KqAqaduyqgxURFlpF7KSSveWktnknL04kLsZg+W4qPSA7ByAc/6NUpKaIXGOMd19eexCVlL5ZtpGaUoC8cFRKi5jBCvTRBuyEr2wwW7fWumM7NpYEdmC9dPuHpru9skKt7qHsssWGqmLtmzR+m3ePaxgt09Ij/JKF+7GBvWzngBYN3pnsXXPZnGS8dBJu5KVOEvxbPiddiYrcZrTWpbmYqFJwT+4lJU4f8ZDCQbBWL5ODNazZXEurKhB9D8+TZtiehtlQ60Wf43tIVyJaOYIOVqYn6feceIsLauDUfpp+T0Hv9Qdo72HheBXOfF/jJAB2+9/ETMaOdpGqAcxw1IXPlwOEvAz3YH6B9NEHprO/l4QQkJsMaJ1I5Fc1N5u+i4t0rKM0LfZXPQ2IX/TE8g66sk1Ss/vf1yKLw7FAj7ClqFaFmQIUcc838+dAEjmk1vOup9bFNeigJ64F3qoEXnxRfbkbLHz5x0mv6K8x5V6uLQtlmeogWl7Gtc5efF4PB6PpyL+AYIPPUb9sB23AAAAAElFTkSuQmCC")}#toolPanel .close{background-size:cover}#toolPanel .close,#toolPanel .close:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG2SURBVHgB7dpBboMwEIVhiLquyqLXibhZ6c1QLtIDdEFPAOUtkKIEkMee95zF/FKUKk0FX4xU7LhpoiiKoiiKoqhOP33/gUdTudzzuFjePF2vX+/LMuGBn5tKlZxHm/rGaf005/UA969dlmXobrfvRhiAc9sO969d2rbrxvEv5e9NI/wYDqwc6T2stWQwPsH1YE+jqUIfYXFOqaOLki/prd++H9ZL+QnIvLzPsJ/jODSGzGCkRHtiURYYKdDeWJQNRkw0A4uKwIiBZmFRMRh5oplY5AJGHmg2FrmBUQlagUWuYJSDVmGROxhZ0EosooBRClqNRTQwOkPjWY1FVDA6Qu/FxiI6GKWgFVgkAaMztAqLihYALL3N85LzO+8kI5yyUqFaLqKDLcsyCjQVfPZ/Fs/qlRNEA6fcVNRYLqKALXdQarQ7OOd2UYl2BZfcG6vQbmCPiYAC7QL2nPWw0cVgxhSPiS4CM+ezLHQ2WDF5Z6CzwMqVCm+0GVxjWcYTbQLXwG55oYt2ACDl5P0QLdwBIMMiHGvvS3lL2TsA1NitR7R1B4A5XNrTC2xbepXziKIoiqIoOuwfOs4hnf5I1CMAAAAASUVORK5CYII=")}#toolPanel .undo,#toolPanel .undo-disabled{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMVSURBVHgB7ZrPbtNAEMa/3bVj3CQUNWmjtqoa7vTEiT4AvbSvyUNwoZyQEOXSikNEJTi0ARqQkBunTuwd1hEtdkOzzl850f5u9nq8/ry7s+MZAwaDwWAwGAxzgmFSVqqbgL2FiHsILhrIORYmoFCqPQsl3+8fCAlZrDlofz9FjuEYE8vdfnEn9hbCLnLOGCO8XhKudSCZrAy28SZyzoiCH68Jlx8QQ/l+iyR+is7FCXJOZqeVWq/JG0gKIkEf8752b8kkOF6vagrvDRgz6kYRjlEKf2JetDYC4FMXY6IVbDkbL6UQdeQIRsxjJJvhTfQBuLoexVYMb96uwGH7yBsMDjFW4Zaok4smut1OVlPNtrTqqWkbIKcQo7KQxSOUy5WsNpoRvoqIFSXjbAe5hQkunR0Kdxrx82qvRhbUG1Rv8pCIOSnjvtNib1Dq/cK8CIKCiFb2CXwzeVoCJ/Cb2m1xhFi6WhauOCTGB/dgwY/hzTeOFiu1o6To/stvr73SeXDNlE7idyl0v3KL1dXd0yNNVLfsMmTvem6RFvXcJrNFYqtkggp+B732j2F2IwiOiUXvNrjt11QHqZEmYIsKxa6uw+nhd7ld3Eo+BzEZqf7Ph1mNKDhGObJeu0HWakFNo1qyJUuH04S4C8b/xQichKDQOxtmM/bXkoqb3/UdRRJpe5gngZOK8OJtSmcyxggnUGuW+COPRDyl+Tk6l+8xVxwrvY7Vc6w+asD3H3RcEyUA+gStBgLkPtNxy/hTekExgpcdI3jZMYKXHSN42TGClx0jeKFYQWngXKs19BN1sQVH6RpXnNfSmSy0YAv20+RxBHmps1lgweslKe7Vo0P7i85qYQXHNeqBk0GgzZpOnvEYRrWqzTGNjI+SgHiusqSp8oqUpLIuLW1ObUaC478E+BH5fPqC0U8Jp4iribjpZSrGz0awW9hTKduZiL1PvyB/c/0a8DJlTGc7pWdMPLJ/xWYuyE+Wpn2I0Pn9v5LMtJAkPVUfPqNO8S3wbaRc+OQ/pg1jFk6r9UQFF59zW7M2GAwGg8FguOMPg6ATjq272toAAAAASUVORK5CYII=");background-size:cover}#toolPanel .undo:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKwSURBVHgB7ZphbtowFMef7aajjTTxZVJLv2QnGL0BnID1BvQEYydoe4K2N2hPwG4AO8G2Eyz70FFpXyINOiaw356RJlHDcBJIlkT+SfkQO8/4j59fbL8AOBwOh8PhcOSEgG2pHbX4/ssuXQHOfn6GKsMPjt8Jv4F/L7rvQcHhkBLun1wzzm6WyxiHDhScPUhK7SjYE7yPgE2zijH2EQoOS/S0f9IUiH2yClYaYng7H4+q49KL+Qr4yRSLABEHfF8GsZpYI7yYr4DrBEXA8VzOML/oXJtGEEURpMQqWBw2tAu/hWIR0jWUUl3B9DFMYrhZsJ6z2o2LS8hhdjab/IjtYZvnsOeF9J+kdp8cCBR4A89/1YxrsFlwFEYI5DbFpk6i+1Cv1+M8HCtoeeTaCmBAMdlsdBG0vByDlhSCBKpr6npruRwRrtTT90ubffz3MC04OGcDWlwEq5WqKyeP95Ajwj8eGKIj6T29tkXw+EtLioZKYRsRwzXN3PHDxgXkiJR4bhTV+e+Drs0u2Vpai95/cUoONDSrGIPLXDcPi9fR835QH1o2s+SbBwpkcjJqk2vfmlVxfnC38HujA2+sFpCS+fihRwKfRXDaLYWQIxLADJaBzSbZ5mENwj/qAvIOif0yH9uj5E6hQCoE/7pcRHM7gOno279Mthb8X0khOLVLlxUnuOo4wVXHCa46TnDVcYKrjhNcMoKVkg0bB02pBQshAqPIeqRc7hFG7Bj31uxleQXTXnglBcTwg82stIJ1jtoskxKGVjvIEj0Ku4dOOdgFpWnN9MpdnMRaNoL10Qvng3WJ8yxAwFBJjJUSysSluRC9/MRCpICfxU2bljpKL0YWWBsmDztKl6ZESXmzPiWzG3Tb+kxceb9Ok4jVZHpMW8sgaE23/OTB4XA4HA6HIzf+AELL5fDBKGTPAAAAAElFTkSuQmCC")}#toolPanel .confirm{background-size:cover}#toolPanel .confirm,#toolPanel .confirm:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALrSURBVHgB7ZlNctpAEIV7RPhx8IIjeGviVMEJHG5grxKchcUJQk4QcgI7JzAsAtk5N8CcAKfKga2PwAJVDJQ06Ra2y4hBaIRURlR/O3pGo3makfSeAGAYhmEYhmEYhmEYELBD5O9+mpAyjsF2etbR56aqz84IfjvsfBMSGs8Fx6mpRBuwAyyJJWilFbyBhJMfts/BK5awoafqn+gtjfdsCQyj763jan8fv6s2VMckdkvPxYquty5A/lgldt6eQHL9zoGRhS5O/sDT1LKKVdPv2MQJXi1W3FrFT+V1xydqS/us7H168q8SZIzErHChf1WYZnN9lVhbQOXhsHofZJzErPAsu9fdVCyRCMH5YecKQJY8ZW2xxNYLzg9+XaCxMBercoTW8VRXLLHVgskyorj6UoMjK+iTbyEEWytY6Y8JB2phxRJbKXiVWLKM1lG1CRuw8rVEr4FZOnNiz4ybh7L+vRKWeRgQTW/dzx/roBRML/hUVqIpFwW3kw2V8fvqDcRMmDCgi3JLp9L0oJiLJWRKXLuTiZGwYUAXpWAp8LG/WCnglb+mlYcYoHEljv/yIj/SGhfP6hAhSsGZ6fQSRXqfhLjNoRu1aP8w4J98wqAUPCrXRunJpBK36CjCgC6+4SE3xAlJ9dWnCdGFgZBEFQZ08X0P00kdPLnESSy2yBKZeZo0hCSqMKDLWuPhKzqTu4AQRBkGdAnktGgSAs26a9pfIsB0zb0GUYcBXQJbS/Kvwhanyy2yPjf564kjDOii5aVdt4Xm3Vsn37tOdFxhQBft8OCad0d+9dZJzN6grTQJcYYBXUJ/09r/22lIAcurKgzTOvzYevoZdxjQZaOPeKtESxC/Qdp/hIH/70j4sHTSVxLrnhs2ZP+ufSkN8SVofzcMROyPdYjkM21+0G7iUOcBurbi8Mc6RPLFwyqembRN/fq4D6hXFuvOAyKEvLeQ8kSAcYxbt4D38kiC08tOJs1NfDfDMAzDMAyTBP4D55plBOlQMmwAAAAASUVORK5CYII=")}.__screenshot-lock-scroll{height:100%!important;margin:0;overflow:hidden!important}.ico-panel{border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #fff;height:0;left:23px;position:absolute;top:0;transform:rotate(180deg);width:0;z-index:9999}.ico-panel img{height:100%;width:100%}#optionPanel{background:#fff;border-radius:5px;box-sizing:content-box;height:20px;left:0;padding:10px;position:absolute;top:6px;z-index:9999}#optionPanel .brush-select-panel{float:left;height:20px}#optionPanel .brush-select-panel .item-panel{float:left;height:20px;margin-right:18px;width:20px}#optionPanel .brush-select-panel .item-panel:first-child{margin-left:2px}#optionPanel .brush-select-panel .item-panel:last-child{margin-right:0}#optionPanel .brush-select-panel .brush-small{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKlJREFUeNrs18EKgkAUhWEnwmW1amObHqKeo0ftOfIh3OSmlba0xXSEK4SICAoz4X/gINwL8sE4C533Pok5myTyAAQIECBAgAAB/jdwO/cFO3dsH3v1qmY2LtWHWr/9KyxQOag3Nf2ZnQ17V6vQR3zp4bqktgv+DWYjuxO3eELKkd0zBmCuNgPzxnbBgZXd1kL9WIslbnAbx38xQIAAAQIECBDgqoFfAQYAhLQbgzDvXkAAAAAASUVORK5CYII=");background-size:cover}#optionPanel .brush-select-panel .brush-small-active,#optionPanel .brush-select-panel .brush-small:active,#optionPanel .brush-select-panel .brush-small:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAALhJREFUeNpi/P//P8NgBkwMgxyMOnDUgaMOHHXgqANHHTjqwFEHDm0HslBqAB+jGIhSBeIOIHaBCu8B4gogvv3p/yuKzGektMEKdKA6kDoBxAJoUh+A2ALowJsDHcVtWBzHABVro9RwaoTgRxCFQ/oLMAR5R3MxAbAHj9yuweDAamiGYMCSSaoHgwNvgHIrEK8D4s9QvA4qdmPAM8loVTfqwFEHjjpw1IGjDhx14KgDRx04pB0IEGAAHeMoHW2kl/cAAAAASUVORK5CYII=")}#optionPanel .brush-select-panel .brush-medium{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAS9JREFUeNrs2EsLgkAQB/BWupQQHXpczbp36/EB6ptH1M2D17RLhx6XQG9lszCBxEa5zoTQDPxvjv52RR1UWZbVqlxOreIlQAEKUID/Dqx/e2BL9d4t0MP0IS7kBkkgZ0iMub82XrMjLdBQGjXTdgO6jRlpC2QDiX51ixVkClkacMbNhyywR/0COIGMLfrG2MsK9C1xeaTPBdTHzgkezHmR6zoFd88lAOpzDDmAHuHrzeMA9giBXQ5ggxDY5ADeq/4tTgmvm3IAL4TAEwcwJgTGHMAdTillK8FzsTwkawLgGkcylm+xXnlQAhcU2T3baWYLCS36QuzlmahzpX/mrCAHnPE+zYRXhO1strzMRK0n5D0OEQNIJzdMPEf+CGHWL3klf7cEKEABClCApeohwADD8zb9WRTsHgAAAABJRU5ErkJggg==");background-size:cover}#optionPanel .brush-select-panel .brush-medium-active,#optionPanel .brush-select-panel .brush-medium:active,#optionPanel .brush-select-panel .brush-medium:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAU9JREFUeNpi/P//P8NgBkwMgxyMOnDUgaMOHHXgSHcgC7EK+RjFsAmzAXEAFFsCsRQQ/wLiJ0B8HojXA/FGqBgK+PT/FVH2MhJb1WFxYCAQdwGxCgGtd4C4HIjXkeNAcqKYGYg7oRaqEKEepGYtVA8zzaIYCbQBcRkZ+mB6ymmZSULIdByyI0NI0UBKGgRliLtALENhxnwKxErANPiL2iEYSgXHgYA0EIfRIooDqFi8BdDCgaZUdKAJLRwoQUUHStLCgb8YBgCQ4sDnVLT3OS0ceImKDjxDCwduoKIDN9DCgauhrRRKwVOoWTTJJEVUcGAhEP+kVV0M8nk3BY7rJiX0yG1uVQLxFDL0TYXqpXmT/y8Q50JbJXeIUH8HWo/nQPWSBChpUcOa/KHQ1rUxtCEAywhnoU3+1XRp8o/26kYdOOrAUQeOOnDUgVgBQIABAPYuSgtJpajwAAAAAElFTkSuQmCC")}#optionPanel .brush-select-panel .brush-big{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAaNJREFUeNrcmMFKw0AQhpOqRdGUCloD2lMv1T6B6RMI4sOK4BM0b1Clh56skFahpVaUaln/wBQkzKYmTbJTB75TSPJlN7uzM7ZSypIc9sYIVuxa0nsdUAcuqIIDUKZrczADExCAJ/CW5OFTNUolaIMGaIGThB80BF3QByoPwVPQptFaJ8JR7YDnrAS3gAfOM/69HoEPFusI7oIrcJzTGngB9+AzjWAod5PBlP5lym+jkqsEt8E1qBW0m4Q2d+A7KljS3OAVKGfRuzzuQkmzWpsG9uQmvTtW0KatxFS0yUEr2ChgUcRFlRy0ghcC0m9LJ+hQXjUdYQqtcIJ1QYeYM07QFSTocoKHggSrnOC+IEGHEywLEtyJyySi4rfgXJDXFyf4LkhwxgmOBQmOOcFAkGDACQ4ECQ44wamQURySC7vNPAgQ7MYdt/pUxJiKCTloBRUV1abCj3YduEwSVvw9A3I9bqHqUl2HSsGiYqSbuY0t3JexR62Po5zkXqn18ZG2N7PsMlxaQptH0TrBs7Jpv/mrMte/bGByx/LiWsBSQ7zgjwADAPqYqQ1c9nN+AAAAAElFTkSuQmCC");background-size:cover}#optionPanel .brush-select-panel .brush-big-active,#optionPanel .brush-select-panel .brush-big:active,#optionPanel .brush-select-panel .brush-big:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhRJREFUeNrUmLtPAkEQh+/UghCxw06JNuCjJURBK+OjsNVEW4KF6P+iYKGF9rYWhmClKKGg8wGNRu2kA4M25PyNGRKFPb0Fjlsm+SKG3MyXLLezs7phGJrK0acpHgP1D0P6sOyzY2AJRMAE8AEPf1cBz+ABZEAKPMkkLxtv33/1+hJbFOwHayAOZuh5i/WoSBYkwSmo2SG4ABIg0OaqFcAOuLAiaOU36AKHIN0BOY1zpDmnq92XxAsuQcyG33+Mc3tbFaQHr0DQxpc0yDW8soJucAb8XdhJ/FzLLSO4B0Jd3O5CXNOSIL2tUQf25CjX/lOQ/t93sHEkeK81FVznruBUBLgRmApuK9B+42aC1FtnFRCkFjouElyW6K12hs6HkCbBsEKnrLBIcEohwUmR4IhCgj6RoEchwcGeOfL/FKwo5PUuEnxVSPBFJHivkOCdSDCjkOC1SDDF05fTYbBLk+AjuFFAMMsuwm3mQAHB5K/G3DAX02HxtkPjZasz8zQN9mZzcY2Haqdit/HWQdRJaOI/cUDumAd6S1MdnWpzXZTLma2cmWAVrIJiF+SKXKsqe7NQAvMgb6NcnmuUWrn6oKBXaQ4c2SBHOSNcQ2tVkOIDbIHFDi15kXNRzk+Z49Z/keaxYIN3e9m2SM9sco605QlK8oZVaxhTV3iZaGMfpTT8XZmPTAU+hJxr7V4B98KJWsn4EmAAKPJ2SXt/mW0AAAAASUVORK5CYII=")}#optionPanel .right-panel{align-items:center;display:flex;float:left;margin-left:39px}#optionPanel .right-panel .color-panel{background:#fff;border:1px solid #e5e6e5;border-radius:5px;display:flex;flex-wrap:wrap;justify-content:center;position:absolute;right:28px;top:-225px;width:72px}#optionPanel .right-panel .color-panel .color-item{height:20px;margin-bottom:5px;width:62px}#optionPanel .right-panel .color-panel .color-item:first-child{background:#f53440;margin-top:5px}#optionPanel .right-panel .color-panel .color-item:nth-child(2){background:#f65e95}#optionPanel .right-panel .color-panel .color-item:nth-child(3){background:#d254cf}#optionPanel .right-panel .color-panel .color-item:nth-child(4){background:#12a9d7}#optionPanel .right-panel .color-panel .color-item:nth-child(5){background:#30a345}#optionPanel .right-panel .color-panel .color-item:nth-child(6){background:#facf50}#optionPanel .right-panel .color-panel .color-item:nth-child(7){background:#f66632}#optionPanel .right-panel .color-panel .color-item:nth-child(8){background:#989998}#optionPanel .right-panel .color-panel .color-item:nth-child(9){background:#000}#optionPanel .right-panel .color-panel .color-item:nth-child(10){background:#feffff;border:1px solid #e5e6e5}#optionPanel .right-panel .color-select-panel{background:#f53340;border:1px solid #e5e6e5;height:20px;width:62px}#optionPanel .right-panel .pull-down-arrow{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAQCAYAAAABOs/SAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANNJREFUeNq01TEKwjAUxvHXOAhKJ3Fwc9PVzbWipxCdHLyMV9AD6A2EegRdvYBOnd3E70ELIcT2JU0C/1BI4AeB8pKUhlMiOqAtKijuGqEj2ne61D/jY1V2QZ+IaI7maKywrdETzdAVDSKi/Lp3tGP4hRYRcRPlly1Uech4FgG3onygtEvvwDijNxtqwiHxCp3YUBscAm9E/8FtcBFaB/vgYrQJdsGdUAkswZ1RKVyH6+hDivJKMCTa/CY9DV26DBlX2MTJB/WFK/yEvmjjM05/AgwANuZSRB8r5twAAAAASUVORK5CYII=");background-size:cover;height:8px;margin-left:10px;width:15px}#cutBoxSizePanel{align-items:center;background:rgba(0,0,0,.4);border-radius:3px;color:#fff;display:flex;font-size:14px;height:25px;justify-content:center;width:85px}#cutBoxSizePanel,#textInputPanel{left:0;position:absolute;top:0;z-index:9999}#textInputPanel{border:none;box-sizing:border-box;font-weight:700;margin:0;min-height:20px;min-width:20px;outline:none;padding:0}.hidden-screen-shot-scroll{height:100vh;overflow:hidden;width:100vw}</style></head>
+<body><div></div>
+
+  <!-- NAVEGACIÓN -->
+  <header class="nav">
+    <a class="logo" href="https://detodopelicula.netlify.app/#inicio">🎬 Detodo<span>peliculas</span></a>
+    <div class="nav-actions">
+      <nav class="navlinks" id="navlinks">
+        <a href="https://detodopelicula.netlify.app/#inicio" onclick="closeNav()">Inicio</a>
+        <a href="https://detodopelicula.netlify.app/#peliculas" onclick="closeNav()">Películas</a>
+        <a href="https://detodopelicula.netlify.app/#estrenos" onclick="closeNav()">Estrenos</a>
+        <a href="https://detodopelicula.netlify.app/#series" onclick="closeNav()">Series</a>
+      </nav>
+      <button class="btn-admin-nav" onclick="openAdminModal()">
+        🔐 Administrar
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" onclick="toggleNav()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <div class="eyebrow">Bienvenido a Detodopeliculas</div>
+        <h1>El cine que quieres, en un solo lugar.</h1>
+        <p>Explora películas populares, grandes estrenos, clásicos y series. Descubre nuevas historias y encuentra rápidamente tu próximo entretenimiento.</p>
+        <a class="btn primary" href="https://detodopelicula.netlify.app/#peliculas">🎬 Explorar películas</a>
+        <a class="btn secondary" href="https://detodopelicula.netlify.app/#estrenos">🔥 Ver estrenos</a>
+      </div>
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="search-wrapper">
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Buscar por título de película o serie...">
+        <button onclick="ejecutarBusqueda()">🔍 Buscar</button>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PELÍCULAS -->
+    <section id="peliculas">
+      <div class="section-title">
+        <h2>🎬 Películas destacadas <span class="badge-count" id="countMovies">27</span></h2>
+      </div>
+      <div class="grid" id="gridMovies">
+        <article class="card" onclick="openDetailModal('wp_1')" title="Ver detalles de Una Mujer sin Pasado">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/una_mujer_sin_pasado-392735508-large.jpg?w=819')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Una Mujer sin Pasado</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_2')" title="Ver detalles de Letras Robadas (Power Ballad)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/power_ballad-515930050-large.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Letras Robadas (Power Ballad)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_3')" title="Ver detalles de Bajo tus pies">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/bajo_tus_pies-206557240-large.jpg?w=717')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Bajo tus pies</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_4')" title="Ver detalles de Zona cero (Colony)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bnzi5ywvingutngrimy00othhlwiwogutzjkyzdk2njliody2xkeyxk.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Zona cero (Colony)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_5')" title="Ver detalles de Personas Comunes">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-63.jpg?w=387')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Personas Comunes</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_6')" title="Ver detalles de Turning Point: Generation 9/11">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bywy0ody4mtutyjlhzs00yzu2lwiwytmtmjgwzgm2mdviotbhxkeyxk.jpg?w=822')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Turning Point: Generation 9/11</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_7')" title="Ver detalles de Solo por una noche">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bm2zlytq2ymutztnlny00ogi0lwfmnjctn2mynjyznjaznjlixkeyxk.jpg?w=693')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Solo por una noche</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_8')" title="Ver detalles de LEGO Star Wars: The Mandalorian">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-59.jpg?w=399')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">LEGO Star Wars: The Mandalorian</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_9')" title="Ver detalles de Batman: Knightfall Part 1">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bnty3ywizyzytzdk2my00yjfjlwe2otctnwvhotu3zdq2ytu0xkeyxk.jpg?w=683')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Batman: Knightfall Part 1</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_10')" title="Ver detalles de Coyote vs. Acme">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/coyote_vs_acme-412710181-large.jpg?w=768')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Coyote vs. Acme</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_11')" title="Ver detalles de The Whisper Man (Susurran tu Nombre)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5boti1ymy3ytqtytg2zi00otzkltk3nzqtnjcxnzizmjk2odzlxkeyxk.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">The Whisper Man (Susurran tu Nombre)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_12')" title="Ver detalles de Frankenstein: Legacy">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-70.jpg?w=388')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Frankenstein: Legacy</div>
+            <div class="card-meta">
+              <span>2025</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_13')" title="Ver detalles de Aves de Corral">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/aves_de_corral-884039058-large.jpg?w=695')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Aves de Corral</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_14')" title="Ver detalles de Barreda">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bmgm2ymm1nmqtzjlkos00yjlkltllmtctyjvimzi4n2m5nzfhxkeyxk.jpg?w=190')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Barreda</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_15')" title="Ver detalles de The Brink of War">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bytbkodu5ymetztgzyy00ztc3lwi1ogytnzvkzjnhzdyzmdmxxkeyxk.jpg?w=655')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">The Brink of War</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_16')" title="Ver detalles de Carrera contra el tiempo (The Runner)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-60.jpg?w=374')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Carrera contra el tiempo (The Runner)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_17')" title="Ver detalles de Penelope 2">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/poster.jpg?w=683')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Penelope 2</div>
+            <div class="card-meta">
+              <span>2025</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_18')" title="Ver detalles de Mayday">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bm2vmywezm2utodnjzi00ytk1lwezzjetnzy4ogu0ytdknmjmxkeyxk.jpg?w=683')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Mayday</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_19')" title="Ver detalles de Hope">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/hope-628246578-large.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Hope</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_20')" title="Ver detalles de Moscas">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-69-1.jpg?w=452')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Moscas</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_21')" title="Ver detalles de La Ladrona del Tiempo">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/la_ladrona_del_tiempo-201763912-large.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">La Ladrona del Tiempo</div>
+            <div class="card-meta">
+              <span>2025</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_22')" title="Ver detalles de Entrega al límite (Runner)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-68.jpg?w=335')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Entrega al límite (Runner)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_23')" title="Ver detalles de Hasta el fin del mundo">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bodk2yzhhnjatzwqznc00mzvmltk2nzqtmdzimzblzdhknte1xkeyxk.jpg?w=717')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Hasta el fin del mundo</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_26')" title="Ver detalles de La guerra de los últimos (The Dog Stars)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-37b66de7.jpeg?w=399')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">La guerra de los últimos (The Dog Stars)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_27')" title="Ver detalles de Killer Whale">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bmtdmowqwzjgtmzuxmi00zmnmlwe3ntgtzgq1nddlodc1m2jjxkeyxkfqcgc40._v1_.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Killer Whale</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_28')" title="Ver detalles de Vértigo 2: Punto muerto (Fall 2)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/2026-09-03-09f00ed1-4634-48c6-bc71-85d55196634a.jpg?w=700')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Vértigo 2: Punto muerto (Fall 2)</div>
+            <div class="card-meta">
+              <span>2026</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_29')" title="Ver detalles de Érase una vez en un Ring">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bzwi4zjgzzjctytnizs00ymuxltgynzktngexzthhnwq0nzgxxkeyxkfqcgc40._v1_fmjpg_ux1000_.jpg?w=683')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Érase una vez en un Ring</div>
+            <div class="card-meta">
+              <span>2025</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Película</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BANNER ESTRENOS -->
+    <section id="estrenos">
+      <div class="banner">
+        <div>
+          <h2>🎞️ Los grandes estrenos</h2>
+          <p>Mantente al día con las novedades cinematográficas y descubre lo que todos están viendo.</p>
+        </div>
+        <a class="btn primary" href="https://detodopelicula.netlify.app/#peliculas">Explorar ahora</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SERIES -->
+    <section id="series">
+      <div class="section-title">
+        <h2>📺 Series populares <span class="badge-count" id="countSeries">2</span></h2>
+      </div>
+      <div class="grid" id="gridSeries">
+        <article class="card" onclick="openDetailModal('wp_24')" title="Ver detalles de Operativo: Lioness">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/operaciones_especiales_lioness_serie_de_tv-655357732-large.jpg?w=600')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Operativo: Lioness</div>
+            <div class="card-meta">
+              <span>2 Temporadas</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Serie</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card" onclick="openDetailModal('wp_25')" title="Ver detalles de Linternas (Lanterns)">
+          <div class="poster" style="background-image: url('https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/lanterns-723320007-large.jpg?w=691')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Linternas (Lanterns)</div>
+            <div class="card-meta">
+              <span>1 Temporada</span>
+              <div class="card-badges-wrapper">
+                <span class="download-badge">📥 Descarga</span>
+                <span class="card-type-tag">Serie</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div>
+      <strong style="color:#fff">Detodopeliculas</strong><br>
+      Tu mundo del cine, en un solo lugar.
+    </div>
+    <div>© 2026 Detodopeliculas — Todos los derechos reservados</div>
+  </footer>
+
+  <!-- MODAL DE DETALLE (VISITANTES) -->
+  <div class="modal-backdrop" id="detailModal" onclick="handleDetailBackdropClick(event)">
+    <div class="detail-card">
+      <button class="detail-close" style="position:absolute; top:18px; right:18px;" onclick="closeDetailModal()" aria-label="Cerrar">✕</button>
+      <div class="detail-poster" id="detailPoster"></div>
+      <div class="detail-body">
+        <h2 class="detail-title" id="detailTitle"></h2>
+        <div class="detail-badges">
+          <span class="badge badge-accent" id="detailType"></span>
+          <span class="badge" id="detailYear"></span>
+          <span class="badge badge-download" id="detailDownloadBadge" style="display:none;">📥 Descargable</span>
+        </div>
+        <div class="detail-synopsis" id="detailSynopsis"></div>
+        <div class="detail-actions">
+          <a id="detailTrailerBtn" class="btn primary" href="https://detodopelicula.netlify.app/#" target="_blank" rel="noopener">▶ Ver Tráiler</a>
+          <a id="detailDownloadBtn" class="btn download" href="https://detodopelicula.netlify.app/#" target="_blank" rel="noopener">📥 Descargar</a>
+          <button class="btn secondary" onclick="closeDetailModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE AUTENTICACIÓN (CONTRASEÑA DE ADMINISTRADOR) -->
+  <div class="modal-backdrop" id="authModal" onclick="handleAuthBackdropClick(event)">
+    <div class="auth-card">
+      <button class="detail-close" style="position:absolute; top:16px; right:16px;" onclick="closeAuthModal()" aria-label="Cerrar">✕</button>
+      <div class="auth-icon">🔐</div>
+      <h3>Panel de Administración</h3>
+      <p>Ingresa la contraseña para subir, editar contenido o administrar el catálogo.</p>
+      <form onsubmit="handleAuthSubmit(event)">
+        <div class="auth-input-wrap">
+          <input type="password" id="adminPassInput" class="form-control" placeholder="Contraseña de administrador" required="" autofocus="" autocomplete="current-password">
+          <button type="button" class="toggle-pass-btn" onclick="togglePassVisibility('adminPassInput')" title="Mostrar/ocultar contraseña">👁️</button>
+        </div>
+        <div id="authErrorMsg" class="auth-error-msg" style="display: none;">
+          ❌ Contraseña incorrecta. Inténtalo de nuevo.
+        </div>
+        <button type="submit" class="btn primary" style="width:100%; justify-content:center; margin-top:16px;">
+          Ingresar al Panel
+        </button>
+        <div style="font-size:12px; color:#7d8090; margin-top:16px; line-height: 1.4;">
+          Contraseña inicial: <code style="color:#fff; background:#1b1d28; padding:2px 7px; border-radius:4px; font-weight:700;">admin123</code><br>
+          <span style="font-size:11px; color:#5d6070;">(Puedes cambiarla dentro del panel de administración)</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE ADMINISTRACIÓN (SUBIR, EDITAR Y EXPORTAR) -->
+  <div class="modal-backdrop" id="adminModal" onclick="handleAdminBackdropClick(event)">
+    <div class="admin-modal">
+      <div class="admin-header">
+        <h3>⚙️ Herramienta de Administración</h3>
+        <div class="admin-header-actions">
+          <button class="btn-action del" onclick="logoutAdmin()" title="Cerrar sesión de administrador">🔒 Cerrar Sesión</button>
+          <button class="detail-close" onclick="closeAdminModal()" aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+      <div class="admin-tabs">
+        <button class="tab-btn" id="tabBtnForm" onclick="switchAdminTab('form')">➕ Subir / Editar</button>
+        <button class="tab-btn" id="tabBtnList" onclick="switchAdminTab('list')">📋 Administrar Catálogo</button>
+        <button class="tab-btn active" id="tabBtnExport" onclick="switchAdminTab('export')">💾 Guardar para Netlify</button>
+      </div>
+      <div class="admin-body">
+        <!-- TAB 1: FORMULARIO -->
+        <div class="tab-content" id="tabForm">
+          <form id="itemForm" onsubmit="handleFormSubmit(event)">
+            <input type="hidden" id="formItemId" value="">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="formType">Tipo de Contenido *</label>
+                <select id="formType" class="form-control" required="">
+                  <option value="movie">Película</option>
+                  <option value="series">Serie</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="formYear">Año o Duración / Temporadas *</label>
+                <input type="text" id="formYear" class="form-control" placeholder="Ej: 2024 o 4 Temporadas" required="">
+              </div>
+              <div class="form-group full">
+                <label for="formTitle">Título *</label>
+                <input type="text" id="formTitle" class="form-control" placeholder="Ej: Dune: Part Two" required="">
+              </div>
+              <div class="form-group full">
+                <label for="formPoster">URL de Imagen de Póster *</label>
+                <input type="url" id="formPoster" class="form-control" placeholder="https://..." oninput="updatePosterPreview()" required="">
+                <div class="poster-preview-box">
+                  <img id="posterPreviewImg" class="preview-img" src="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' width='100' height='150' fill='%23333'&gt;&lt;rect width='100%' height='100%'/&gt;&lt;/svg&gt;" alt="Vista previa">
+                  <span style="font-size:12px; color:#888" id="previewText">Ingresa una URL válida para ver la vista previa del póster.</span>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label for="formSynopsis">Sinopsis / Descripción</label>
+                <textarea id="formSynopsis" class="form-control" placeholder="Escribe un breve resumen de la trama..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="formTrailer">Enlace de Tráiler o Video (YouTube)</label>
+                <input type="url" id="formTrailer" class="form-control" placeholder="Ej: https://www.youtube.com/watch?v=...">
+              </div>
+              <div class="form-group">
+                <label for="formDownload">Enlace de Descarga (Mega, Drive, Torrent, Mediafire, etc.)</label>
+                <input type="url" id="formDownload" class="form-control" placeholder="Ej: https://mega.nz/file/... o enlace de descarga">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn secondary" id="btnCancelEdit" style="display:none;" onclick="cancelEditing()">Cancelar Edición</button>
+              <button type="submit" class="btn primary" id="btnSubmitForm">Guardar en el Catálogo</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 2: LISTADO Y EDICIÓN -->
+        <div class="tab-content" id="tabList">
+          <input type="text" id="adminTableSearch" class="admin-table-search" placeholder="Filtrar por título..." oninput="filterAdminTable()">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Póster</th>
+                  <th>Título</th>
+                  <th>Tipo</th>
+                  <th>Año / Info</th>
+                  <th>Descarga</th>
+                  <th style="text-align:right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="adminTableBody">
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/una_mujer_sin_pasado-392735508-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Una Mujer sin Pasado</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_1')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_1')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/power_ballad-515930050-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Letras Robadas (Power Ballad)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_2')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_2')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/bajo_tus_pies-206557240-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Bajo tus pies</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_3')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_3')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bnzi5ywvingutngrimy00othhlwiwogutzjkyzdk2njliody2xkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Zona cero (Colony)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_4')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_4')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-63.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Personas Comunes</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_5')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_5')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bywy0ody4mtutyjlhzs00yzu2lwiwytmtmjgwzgm2mdviotbhxkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Turning Point: Generation 9/11</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_6')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_6')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bm2zlytq2ymutztnlny00ogi0lwfmnjctn2mynjyznjaznjlixkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Solo por una noche</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_7')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_7')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-59.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>LEGO Star Wars: The Mandalorian</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_8')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_8')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bnty3ywizyzytzdk2my00yjfjlwe2otctnwvhotu3zdq2ytu0xkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Batman: Knightfall Part 1</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_9')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_9')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/coyote_vs_acme-412710181-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Coyote vs. Acme</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_10')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_10')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5boti1ymy3ytqtytg2zi00otzkltk3nzqtnjcxnzizmjk2odzlxkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>The Whisper Man (Susurran tu Nombre)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_11')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_11')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-70.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Frankenstein: Legacy</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2025</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_12')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_12')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/aves_de_corral-884039058-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Aves de Corral</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_13')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_13')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bmgm2ymm1nmqtzjlkos00yjlkltllmtctyjvimzi4n2m5nzfhxkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Barreda</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_14')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_14')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bytbkodu5ymetztgzyy00ztc3lwi1ogytnzvkzjnhzdyzmdmxxkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>The Brink of War</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_15')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_15')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-60.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Carrera contra el tiempo (The Runner)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_16')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_16')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/poster.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Penelope 2</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2025</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_17')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_17')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bm2vmywezm2utodnjzi00ytk1lwezzjetnzy4ogu0ytdknmjmxkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Mayday</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_18')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_18')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/hope-628246578-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Hope</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_19')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_19')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-69-1.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Moscas</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_20')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_20')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/la_ladrona_del_tiempo-201763912-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>La Ladrona del Tiempo</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2025</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_21')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_21')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-68.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Entrega al límite (Runner)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_22')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_22')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bodk2yzhhnjatzwqznc00mzvmltk2nzqtmdzimzblzdhknte1xkeyxk.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Hasta el fin del mundo</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_23')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_23')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/operaciones_especiales_lioness_serie_de_tv-655357732-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Operativo: Lioness</strong></td>
+          <td><span class="card-type-tag">Serie</span></td>
+          <td>2 Temporadas</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_24')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_24')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/lanterns-723320007-large.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Linternas (Lanterns)</strong></td>
+          <td><span class="card-type-tag">Serie</span></td>
+          <td>1 Temporada</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_25')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_25')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/images-37b66de7.jpeg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>La guerra de los últimos (The Dog Stars)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_26')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_26')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bmtdmowqwzjgtmzuxmi00zmnmlwe3ntgtzgq1nddlodc1m2jjxkeyxkfqcgc40._v1_.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Killer Whale</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_27')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_27')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/2026-09-03-09f00ed1-4634-48c6-bc71-85d55196634a.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Vértigo 2: Punto muerto (Fall 2)</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2026</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_28')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_28')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      
+        <tr>
+          <td><img src="./Detodopeliculas — Tu mundo del cine_files/mv5bzwi4zjgzzjctytnizs00ymuxltgynzktngexzthhnwq0nzgxxkeyxkfqcgc40._v1_fmjpg_ux1000_.jpg" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>Érase una vez en un Ring</strong></td>
+          <td><span class="card-type-tag">Película</span></td>
+          <td>2025</td>
+          <td><span style="color:#10b981; font-weight:700;">✓ Sí</span></td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('wp_29')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('wp_29')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: EXPORTAR Y SEGURIDAD -->
+        <div class="tab-content active" id="tabExport">
+          <div class="export-card">
+            <div>
+              <h4 style="color: #4ade80;">🚀 Publicar cambios en Netlify</h4>
+              <p>Descarga el archivo <strong>index.html</strong> que ya incluye todas tus películas, series, enlaces de descarga y tu contraseña de administrador guardados en el código. Al subirlo a tu Netlify, los cambios quedarán permanentes.</p>
+            </div>
+            <button class="btn primary" onclick="downloadUpdatedHTML()">⬇️ Descargar index.html</button>
+          </div>
+
+          <div class="export-card">
+            <div>
+              <h4>🔑 Cambiar Contraseña de Administrador</h4>
+              <p>Modifica la clave de acceso requerida para subir y editar contenido en este panel.</p>
+            </div>
+            <button class="btn secondary" onclick="changeAdminPasswordPrompt()">Cambiar Contraseña</button>
+          </div>
+
+          <div class="export-card">
+            <div>
+              <h4>📦 Respaldar catálogo (JSON)</h4>
+              <p>Guarda una copia de seguridad en formato JSON de todas las películas y series actuales con sus enlaces de descarga.</p>
+            </div>
+            <button class="btn secondary" onclick="exportDataJSON()">Exportar JSON</button>
+          </div>
+
+          <div class="export-card">
+            <div>
+              <h4>📥 Restaurar o importar catálogo</h4>
+              <p>Carga un archivo de respaldo JSON generado previamente.</p>
+            </div>
+            <div>
+              <input type="file" id="importJsonInput" accept=".json" style="display:none" onchange="importDataJSON(event)">
+              <button class="btn secondary" onclick="document.getElementById('importJsonInput').click()">Importar JSON</button>
+            </div>
+          </div>
+
+          <div class="export-card" style="border-color: rgba(229, 9, 20, 0.4);">
+            <div>
+              <h4 style="color: #f87171;">⚠️ Restaurar catálogo de fábrica</h4>
+              <p>Restablece las películas y series originales por defecto.</p>
+            </div>
+            <button class="btn secondary" style="border-color:#f87171; color:#f87171;" onclick="resetToFactoryDefaults()">Restaurar Todo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT CON DATOS Y LÓGICA -->
+  <script>
+    /* ============================================================
+       SEGURIDAD Y CONTRASEÑA DE ADMINISTRADOR
+       ============================================================ */
+    const PASS_STORAGE_KEY = "detodopeliculas_admin_pass_v1";
+    let DEFAULT_ADMIN_PASS = "Dragon800@";
+    let isAdminAuthenticated = false;
+
+    function getAdminPassword() {
+      return localStorage.getItem(PASS_STORAGE_KEY) || DEFAULT_ADMIN_PASS;
+    }
+
+    function setAdminPassword(newPass) {
+      localStorage.setItem(PASS_STORAGE_KEY, newPass);
+      DEFAULT_ADMIN_PASS = newPass;
+    }
+
+    function togglePassVisibility(inputId) {
+      const input = document.getElementById(inputId);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    function openAdminModal() {
+      if (isAdminAuthenticated) {
+        document.getElementById("adminModal").classList.add("active");
+        renderAdminTable();
+      } else {
+        openAuthModal();
+      }
+    }
+
+    function openAuthModal() {
+      document.getElementById("adminPassInput").value = "";
+      document.getElementById("authErrorMsg").style.display = "none";
+      document.getElementById("authModal").classList.add("active");
+      setTimeout(() => document.getElementById("adminPassInput").focus(), 100);
+    }
+
+    function closeAuthModal() {
+      document.getElementById("authModal").classList.remove("active");
+    }
+
+    function handleAuthBackdropClick(e) {
+      if (e.target.id === "authModal") closeAuthModal();
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const enteredPass = document.getElementById("adminPassInput").value;
+      const actualPass = getAdminPassword();
+
+      if (enteredPass === actualPass) {
+        isAdminAuthenticated = true;
+        closeAuthModal();
+        document.getElementById("adminModal").classList.add("active");
+        renderAdminTable();
+      } else {
+        document.getElementById("authErrorMsg").style.display = "block";
+        document.getElementById("adminPassInput").select();
+      }
+    }
+
+    function logoutAdmin() {
+      isAdminAuthenticated = false;
+      closeAdminModal();
+      alert("🔒 Sesión de administrador cerrada.");
+    }
+
+    function changeAdminPasswordPrompt() {
+      const currentPass = prompt("Ingresa tu contraseña actual de administrador:");
+      if (currentPass === null) return;
+
+      if (currentPass !== getAdminPassword()) {
+        alert("❌ La contraseña actual no es correcta.");
+        return;
+      }
+
+      const newPass = prompt("Ingresa la NUEVA contraseña de administrador (mínimo 4 caracteres):");
+      if (newPass === null) return;
+      if (newPass.trim().length < 4) {
+        alert("⚠️ La contraseña debe tener al menos 4 caracteres.");
+        return;
+      }
+
+      const confirmPass = prompt("Confirma la NUEVA contraseña:");
+      if (confirmPass !== newPass) {
+        alert("❌ Las contraseñas no coinciden.");
+        return;
+      }
+
+      setAdminPassword(newPass.trim());
+      alert("✅ ¡Contraseña cambiada con éxito! Recuerda pulsar 'Descargar index.html' para que la nueva contraseña quede protegida también en Netlify.");
+    }
+
+    /* ============================================================
+       CATÁLOGO PREDETERMINADO (INICIAL)
+       ============================================================ */
+    const DEFAULT_CATALOG = [
+      {
+            "id": "wp_1",
+            "type": "movie",
+            "title": "Una Mujer sin Pasado",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/una_mujer_sin_pasado-392735508-large.jpg?w=819",
+            "synopsis": "Tras descubrir que tiene familia y un imperio naviero, una mujer con amnesia vuelve a su pasado acomodado y aparentemente perfecto para entender por qué lo abandonó.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1jZlBMkTijDukgUY9yfXrrg"
+      },
+      {
+            "id": "wp_2",
+            "type": "movie",
+            "title": "Letras Robadas (Power Ballad)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/power_ballad-515930050-large.jpg?w=691",
+            "synopsis": "Una cantante de bodas se ve envuelta en una historia con una estrella del rock a través de la canción que se convierte en una conexión entre ellas. Con Keith McErlean, Nick Jonas y Paul Reid.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1-LIHjfYiKqb0bHmKLgVjJA"
+      },
+      {
+            "id": "wp_3",
+            "type": "movie",
+            "title": "Bajo tus pies",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/bajo_tus_pies-206557240-large.jpg?w=717",
+            "synopsis": "Isabel se muda con sus dos hijos a un edificio prestigioso de alquiler asequible. Al instalarse, tres vecinas ancianas del piso inferior alteran la rutina familiar, generando una atmósfera claustrofóbica y de creciente inquietud.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1ufPnc3srBXqcRnRz79j-FA"
+      },
+      {
+            "id": "wp_4",
+            "type": "movie",
+            "title": "Zona cero (Colony)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bnzi5ywvingutngrimy00othhlwiwogutzjkyzdk2njliody2xkeyxk.jpg?w=691",
+            "synopsis": "En una conferencia de biotecnología, un virus de mutación rápida se desata y el recinto queda sellado. Los infectados evolucionan en formas impredecibles, y un grupo de sobrevivientes debe abrirse paso contra reloj.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1B6ygSFOBuyrrARPqxPYW1g"
+      },
+      {
+            "id": "wp_5",
+            "type": "movie",
+            "title": "Personas Comunes",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-63.jpg?w=387",
+            "synopsis": "Gi Cheol, un profesor de gimnasia, se siente raro porque una alumna ha desaparecido, pero a nadie en el pueblo parece importarle. Sólo Yoo Jin, amiga de la chica desaparecida, está segura de que su amiga ha sido secuestrada.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1KIGAEatSO3tGMu8rTeg94g"
+      },
+      {
+            "id": "wp_6",
+            "type": "movie",
+            "title": "Turning Point: Generation 9/11",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bywy0ody4mtutyjlhzs00yzu2lwiwytmtmjgwzgm2mdviotbhxkeyxk.jpg?w=822",
+            "synopsis": "Examina, a veinticinco años del 11-S, cómo el atentado marcó a una generación: niños que perdieron a sus padres, periodistas que cubrieron la guerra contra el terrorismo y jóvenes cuyas vidas cambiaron.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1BCHUWKkQbf-mQ59cclaOeg"
+      },
+      {
+            "id": "wp_7",
+            "type": "movie",
+            "title": "Solo por una noche",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bm2zlytq2ymutztnlny00ogi0lwfmnjctn2mynjyznjaznjlixkeyxk.jpg?w=693",
+            "synopsis": "Dos desconocidos, ávidos de amor, se topan por casualidad en la única noche del año en que las personas solteras tienen permitido tener relaciones sexuales.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1rm1jJDtc6gtgh3RzMzRr-w"
+      },
+      {
+            "id": "wp_8",
+            "type": "movie",
+            "title": "LEGO Star Wars: The Mandalorian",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-59.jpg?w=399",
+            "synopsis": "La historia sigue al cazarrecompensas y al Niño mientras se reencuentran en una nueva misión, combinando humor y la épica del universo Star Wars en formato LEGO.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1s4iL04uYjJb0yoiRZRDzhQ"
+      },
+      {
+            "id": "wp_9",
+            "type": "movie",
+            "title": "Batman: Knightfall Part 1",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bnty3ywizyzytzdk2my00yjfjlwe2otctnwvhotu3zdq2ytu0xkeyxk.jpg?w=683",
+            "synopsis": "El Cruzado Encapuchado enfrenta su mayor prueba cuando Bane libera a la galería completa de villanos del Manicomio de Arkham, empujándolo al límite de su resistencia física y mental.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/15PfCIB7VE9iax1m0jAa5oQ"
+      },
+      {
+            "id": "wp_10",
+            "type": "movie",
+            "title": "Coyote vs. Acme",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/coyote_vs_acme-412710181-large.jpg?w=768",
+            "synopsis": "Wile E. Coyote, tras repetidos fracasos con los productos Acme, contrata a un abogado especializado en vallas publicitarias para demandar a la corporación en un hilarante juicio.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1TL-VudGYii11WIOgwVRctg"
+      },
+      {
+            "id": "wp_11",
+            "type": "movie",
+            "title": "The Whisper Man (Susurran tu Nombre)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5boti1ymy3ytqtytg2zi00otzkltk3nzqtnjcxnzizmjk2odzlxkeyxk.jpg?w=691",
+            "synopsis": "En Chicago de los años 60, una operación encubierta del FBI busca sabotear el movimiento por los derechos civiles, inspirándose en un programa real de espionaje contra activistas.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1qpy4L2_a7DoReNEyfdF0rQ"
+      },
+      {
+            "id": "wp_12",
+            "type": "movie",
+            "title": "Frankenstein: Legacy",
+            "year": "2025",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-70.jpg?w=388",
+            "synopsis": "Ambientada en la Inglaterra de 1875, los personajes deben enfrentar sus propios demonios en una adaptación cargada de terror inspirada en la clásica novela de Mary Shelley.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1n6o7r1rCzMytV8LF_dDJnw"
+      },
+      {
+            "id": "wp_13",
+            "type": "movie",
+            "title": "Aves de Corral",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/aves_de_corral-884039058-large.jpg?w=695",
+            "synopsis": "Película española que combina comedia, crimen y drama. Varios personajes se entrelazan en enredos hilarantes y tensos, mostrando el lado oscuro y cómico de la vida cotidiana.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1b6lw-qfhh8k279P1sjV4Sg"
+      },
+      {
+            "id": "wp_14",
+            "type": "movie",
+            "title": "Barreda",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bmgm2ymm1nmqtzjlkos00yjlkltllmtctyjvimzi4n2m5nzfhxkeyxk.jpg?w=190",
+            "synopsis": "Retrata la escalofriante historia de Ricardo Barreda, el dentista argentino que en 1992 asesinó a su familia y se presentó como víctima, desatando una tormenta mediática en el país.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1srzOusAqx2CWlVxZgbIYCw"
+      },
+      {
+            "id": "wp_15",
+            "type": "movie",
+            "title": "The Brink of War",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bytbkodu5ymetztgzyy00ztc3lwi1ogytnzvkzjnhzdyzmdmxxkeyxk.jpg?w=655",
+            "synopsis": "Se centra en la cumbre histórica de 1986 entre Ronald Reagan y Mijaíl Gorbachov en Islandia, un momento crítico de la Guerra Fría que puso a prueba la diplomacia nuclear global.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1BtMOJWLUuH4lVSlQIX9tkA"
+      },
+      {
+            "id": "wp_16",
+            "type": "movie",
+            "title": "Carrera contra el tiempo (The Runner)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-60.jpg?w=374",
+            "synopsis": "Maia Marten, una abogada londinense, recibe una llamada: su hijo ha sido secuestrado. Obligada a correr sin descanso y obedecer órdenes implacables, debe enfrentar una red de amenazas sin confiar en nadie.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1-UeiTj-4jpVnAvFevofPEA"
+      },
+      {
+            "id": "wp_17",
+            "type": "movie",
+            "title": "Penelope 2",
+            "year": "2025",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/poster.jpg?w=683",
+            "synopsis": "Víctor se cruza con Penélope, una enfermera que oculta su faceta de viuda negra. Lucas, su compañero nocturno, lucha entre la adicción y un amor imposible en una atmósfera tensa y ambigua.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1EXBuqoxND33RknosBkpd2g"
+      },
+      {
+            "id": "wp_18",
+            "type": "movie",
+            "title": "Mayday",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bm2vmywezm2utodnjzi00ytk1lwezzjetnzy4ogu0ytdknmjmxkeyxk.jpg?w=683",
+            "synopsis": "Un piloto naval estadounidense queda atrapado tras líneas enemigas en una misión secreta. Para sobrevivir, deberá aliarse con un excéntrico exagente de la KGB, combinando tensión y acción.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1EXBuqoxND33RknosBkpd2g"
+      },
+      {
+            "id": "wp_19",
+            "type": "movie",
+            "title": "Hope",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/hope-628246578-large.jpg?w=691",
+            "synopsis": "Los habitantes de una remota ciudad portuaria realizan un hallazgo misterioso, desencadenando una intensa lucha por la supervivencia en un entorno hostil y lleno de incógnitas.",
+            "trailer": "",
+            "download": "https://terabox.com/s/18F3SVWB4mQPBaR_mW4AL8A"
+      },
+      {
+            "id": "wp_20",
+            "type": "movie",
+            "title": "Moscas",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-69-1.jpg?w=452",
+            "synopsis": "Olga, una mujer de rutina estricta en un gran edificio de departamentos, alquila por apuros financieros una habitación a un hombre que lleva en secreto a su hijo, creando un vínculo inesperado.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1P2gi6mxjgoClezLPVQSMVw"
+      },
+      {
+            "id": "wp_21",
+            "type": "movie",
+            "title": "La Ladrona del Tiempo",
+            "year": "2025",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/la_ladrona_del_tiempo-201763912-large.jpg?w=691",
+            "synopsis": "Qianxiao, una joven pescadora que llega a la gran metrópolis, es elegida por la misteriosa Rueda del Tiempo, obteniendo el poder de manipular el tiempo en un viaje fantástico.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/12uUmTC_Qf1LHRfNzxWA5zA"
+      },
+      {
+            "id": "wp_22",
+            "type": "movie",
+            "title": "Entrega al límite (Runner)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-68.jpg?w=335",
+            "synopsis": "Frank, un mensajero que debe entregar un órgano vital, se ve envuelto en una frenética carrera contra el tiempo cuando un peligroso jefe criminal persigue el envío.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1cvVMzZSwJDMwD4PYSt6iOw"
+      },
+      {
+            "id": "wp_23",
+            "type": "movie",
+            "title": "Hasta el fin del mundo",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bodk2yzhhnjatzwqznc00mzvmltk2nzqtmdzimzblzdhknte1xkeyxk.jpg?w=717",
+            "synopsis": "Manuel recibe una inesperada llamada de su amor perdido hace quince años a punto de casarse. Al reencontrarse, descubre que su vínculo trasciende el tiempo y las decisiones pasadas.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1kgZgsVMgxXG90cTQQMD04Q"
+      },
+      {
+            "id": "wp_24",
+            "type": "series",
+            "title": "Operativo: Lioness",
+            "year": "2 Temporadas",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/operaciones_especiales_lioness_serie_de_tv-655357732-large.jpg?w=600",
+            "synopsis": "Joe, una oficial de la CIA encargada del programa encubierto Lioness, entrena y lidera a una recluta femenina de operaciones especiales para infiltrarse en peligrosas redes criminales.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/10hppy6aHrWB0BGybxoZMug"
+      },
+      {
+            "id": "wp_25",
+            "type": "series",
+            "title": "Linternas (Lanterns)",
+            "year": "1 Temporada",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/lanterns-723320007-large.jpg?w=691",
+            "synopsis": "John Stewart y Hal Jordan, dos policías intergalácticos, investigan un asesinato con implicaciones globales en el corazón de Estados Unidos mientras descubren un oscuro misterio cósmico.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1kuXuUR9xR_XjpoIOj1tKpQ"
+      },
+      {
+            "id": "wp_26",
+            "type": "movie",
+            "title": "La guerra de los últimos (The Dog Stars)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/images-37b66de7.jpeg?w=399",
+            "synopsis": "Tras una pandemia devastadora, un hombre vive aislado en un hangar con su perro y un viejo avión Cessna. Una misteriosa transmisión por radio lo impulsa a emprender un peligroso viaje.",
+            "trailer": "",
+            "download": "https://terabox.com/s/1JnlmjjUn6eDNhI9srHexhw"
+      },
+      {
+            "id": "wp_27",
+            "type": "movie",
+            "title": "Killer Whale",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bmtdmowqwzjgtmzuxmi00zmnmlwe3ntgtzgq1nddlodc1m2jjxkeyxkfqcgc40._v1_.jpg?w=691",
+            "synopsis": "Dos amigas quedan atrapadas en una laguna desierta sin comunicación. Pronto descubren que una orca altamente letal las acecha estratégicamente en una angustiosa lucha de supervivencia.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1zw4u2zIC9vA9Cs8amvsdrg"
+      },
+      {
+            "id": "wp_28",
+            "type": "movie",
+            "title": "Vértigo 2: Punto muerto (Fall 2)",
+            "year": "2026",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/2026-09-03-09f00ed1-4634-48c6-bc71-85d55196634a.jpg?w=700",
+            "synopsis": "Un grupo de jóvenes se encuentra atrapado en un risco vertical a cientos de metros de altura en Tailandia. Sin posibilidad de rescate, deberán sobreponerse al pánico para no caer al vacío.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1kxJTstIterLy34ibUxcvFA"
+      },
+      {
+            "id": "wp_29",
+            "type": "movie",
+            "title": "Érase una vez en un Ring",
+            "year": "2025",
+            "poster": "https://detodopeliculas4.wordpress.com/wp-content/uploads/2026/09/mv5bzwi4zjgzzjctytnizs00ymuxltgynzktngexzthhnwq0nzgxxkeyxkfqcgc40._v1_fmjpg_ux1000_.jpg?w=683",
+            "synopsis": "Con Blue Demon Jr., sigue a Black Angel en el vibrante y crudo universo de la lucha libre mexicana, revelando testimonios reales y la pasión detrás de las máscaras.",
+            "trailer": "",
+            "download": "https://1024terabox.com/s/1NETLURsgvtl9uzTdv6mYnA"
+      }
+];
+
+    /* ============================================================
+       ADMINISTRACIÓN DE ESTADO Y ALMACENAMIENTO (LOCALSTORAGE)
+       ============================================================ */
+    const STORAGE_KEY = "detodopeliculas_catalog_v2";
+
+    function loadCatalog() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {
+        console.warn("No se pudo leer localStorage:", e);
+      }
+      return [...DEFAULT_CATALOG];
+    }
+
+    function saveCatalog(catalog) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(catalog));
+      } catch (e) {
+        console.error("Error al guardar en localStorage:", e);
+      }
+    }
+
+    let catalog = loadCatalog();
+
+    /* ============================================================
+       RENDERIZADO DE SECCIONES (PELÍCULAS Y SERIES)
+       ============================================================ */
+    function renderGrids(itemsToRender = null) {
+      const items = itemsToRender || catalog;
+      const movies = items.filter(x => x.type === "movie");
+      const series = items.filter(x => x.type === "series");
+
+      document.getElementById("countMovies").textContent = movies.length;
+      document.getElementById("countSeries").textContent = series.length;
+
+      const gridMovies = document.getElementById("gridMovies");
+      const gridSeries = document.getElementById("gridSeries");
+
+      if (movies.length === 0) {
+        gridMovies.innerHTML = `<p style="grid-column: 1/-1; color: var(--muted); text-align: center; padding: 30px;">No hay películas disponibles con este criterio.</p>`;
+      } else {
+        gridMovies.innerHTML = movies.map(item => createCardHTML(item)).join("");
+      }
+
+      if (series.length === 0) {
+        gridSeries.innerHTML = `<p style="grid-column: 1/-1; color: var(--muted); text-align: center; padding: 30px;">No hay series disponibles con este criterio.</p>`;
+      } else {
+        gridSeries.innerHTML = series.map(item => createCardHTML(item)).join("");
+      }
+    }
+
+    function createCardHTML(item) {
+      const escapedTitle = escapeHtml(item.title);
+      const isMovie = item.type === "movie";
+      const hasDownload = item.download && item.download.trim();
+      return `
+        <article class="card" onclick="openDetailModal('${item.id}')" title="Ver detalles de ${escapedTitle}">
+          <div class="poster" style="background-image: url('${encodeURI(item.poster)}')">
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="card-title">${escapedTitle}</div>
+            <div class="card-meta">
+              <span>${escapeHtml(item.year || "")}</span>
+              <div class="card-badges-wrapper">
+                ${hasDownload ? '<span class="download-badge">📥 Descarga</span>' : ''}
+                <span class="card-type-tag">${isMovie ? "Película" : "Serie"}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    /* ============================================================
+       BUSCADOR
+       ============================================================ */
+    function ejecutarBusqueda() {
+      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      if (!q) {
+        renderGrids();
+        return;
+      }
+      const filtered = catalog.filter(item => {
+        const titleMatch = item.title && item.title.toLowerCase().includes(q);
+        const synopsisMatch = item.synopsis && item.synopsis.toLowerCase().includes(q);
+        const yearMatch = item.year && item.year.toLowerCase().includes(q);
+        return titleMatch || synopsisMatch || yearMatch;
+      });
+      renderGrids(filtered);
+      document.getElementById("peliculas").scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.getElementById("searchInput").addEventListener("keydown", e => {
+      if (e.key === "Enter") ejecutarBusqueda();
+    });
+    document.getElementById("searchInput").addEventListener("input", e => {
+      if (!e.target.value) renderGrids();
+    });
+
+    /* ============================================================
+       MODAL DE DETALLE (VISITANTE)
+       ============================================================ */
+    function openDetailModal(id) {
+      const item = catalog.find(x => x.id === id);
+      if (!item) return;
+
+      document.getElementById("detailTitle").textContent = item.title;
+      document.getElementById("detailPoster").style.backgroundImage = `url('${encodeURI(item.poster)}')`;
+      document.getElementById("detailType").textContent = item.type === "movie" ? "Película" : "Serie";
+      document.getElementById("detailYear").textContent = item.year;
+      document.getElementById("detailSynopsis").textContent = item.synopsis || "Sin sinopsis disponible.";
+
+      // Botón de Tráiler
+      const trailerBtn = document.getElementById("detailTrailerBtn");
+      if (item.trailer && item.trailer.trim()) {
+        trailerBtn.style.display = "inline-flex";
+        trailerBtn.href = item.trailer;
+      } else {
+        trailerBtn.style.display = "none";
+      }
+
+      // Botón de Descarga
+      const downloadBtn = document.getElementById("detailDownloadBtn");
+      const downloadBadge = document.getElementById("detailDownloadBadge");
+      if (item.download && item.download.trim()) {
+        downloadBtn.style.display = "inline-flex";
+        downloadBtn.href = item.download;
+        downloadBadge.style.display = "inline-block";
+      } else {
+        downloadBtn.style.display = "none";
+        downloadBadge.style.display = "none";
+      }
+
+      const modal = document.getElementById("detailModal");
+      modal.classList.add("active");
+    }
+
+    function closeDetailModal() {
+      document.getElementById("detailModal").classList.remove("active");
+    }
+
+    function handleDetailBackdropClick(e) {
+      if (e.target.id === "detailModal") closeDetailModal();
+    }
+
+    /* ============================================================
+       HERRAMIENTA DE ADMINISTRACIÓN (ADMIN MODAL)
+       ============================================================ */
+    function closeAdminModal() {
+      document.getElementById("adminModal").classList.remove("active");
+      cancelEditing();
+    }
+
+    function handleAdminBackdropClick(e) {
+      if (e.target.id === "adminModal") closeAdminModal();
+    }
+
+    function switchAdminTab(tabName) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+      if (tabName === "form") {
+        document.getElementById("tabBtnForm").classList.add("active");
+        document.getElementById("tabForm").classList.add("active");
+      } else if (tabName === "list") {
+        document.getElementById("tabBtnList").classList.add("active");
+        document.getElementById("tabList").classList.add("active");
+        renderAdminTable();
+      } else if (tabName === "export") {
+        document.getElementById("tabBtnExport").classList.add("active");
+        document.getElementById("tabExport").classList.add("active");
+      }
+    }
+
+    function updatePosterPreview() {
+      const url = document.getElementById("formPoster").value.trim();
+      const img = document.getElementById("posterPreviewImg");
+      const text = document.getElementById("previewText");
+      if (url) {
+        img.src = url;
+        img.onerror = () => {
+          text.textContent = "⚠️ No se pudo cargar la imagen. Revisa la URL.";
+        };
+        img.onload = () => {
+          text.textContent = "Vista previa cargada correctamente.";
+        };
+      } else {
+        img.src = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='150' fill='%23333'><rect width='100%' height='100%'/></svg>";
+        text.textContent = "Ingresa una URL válida para ver la vista previa del póster.";
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("formItemId").value;
+      const type = document.getElementById("formType").value;
+      const title = document.getElementById("formTitle").value.trim();
+      const year = document.getElementById("formYear").value.trim();
+      const poster = document.getElementById("formPoster").value.trim();
+      const synopsis = document.getElementById("formSynopsis").value.trim();
+      const trailer = document.getElementById("formTrailer").value.trim();
+      const download = document.getElementById("formDownload").value.trim();
+
+      if (!title || !poster) {
+        alert("Por favor completa el título y la URL del póster.");
+        return;
+      }
+
+      if (id) {
+        // Modo Edición
+        const idx = catalog.findIndex(x => x.id === id);
+        if (idx !== -1) {
+          catalog[idx] = { ...catalog[idx], type, title, year, poster, synopsis, trailer, download };
+          alert(`✅ "${title}" ha sido actualizada con éxito.`);
+        }
+      } else {
+        // Modo Creación (Nuevo)
+        const newItem = {
+          id: "item_" + Date.now(),
+          type,
+          title,
+          year,
+          poster,
+          synopsis,
+          trailer,
+          download
+        };
+        catalog.unshift(newItem);
+        alert(`🎉 ¡"${title}" ha sido agregada con éxito!`);
+      }
+
+      saveCatalog(catalog);
+      renderGrids();
+      cancelEditing();
+      switchAdminTab("list");
+    }
+
+    function editItem(id) {
+      const item = catalog.find(x => x.id === id);
+      if (!item) return;
+
+      document.getElementById("formItemId").value = item.id;
+      document.getElementById("formType").value = item.type;
+      document.getElementById("formTitle").value = item.title;
+      document.getElementById("formYear").value = item.year;
+      document.getElementById("formPoster").value = item.poster;
+      document.getElementById("formSynopsis").value = item.synopsis || "";
+      document.getElementById("formTrailer").value = item.trailer || "";
+      document.getElementById("formDownload").value = item.download || "";
+
+      document.getElementById("btnSubmitForm").textContent = "Guardar Cambios";
+      document.getElementById("btnCancelEdit").style.display = "inline-block";
+
+      updatePosterPreview();
+      switchAdminTab("form");
+    }
+
+    function cancelEditing() {
+      document.getElementById("itemForm").reset();
+      document.getElementById("formItemId").value = "";
+      document.getElementById("formDownload").value = "";
+      document.getElementById("btnSubmitForm").textContent = "Guardar en el Catálogo";
+      document.getElementById("btnCancelEdit").style.display = "none";
+      updatePosterPreview();
+    }
+
+    function deleteItem(id) {
+      const item = catalog.find(x => x.id === id);
+      if (!item) return;
+      if (confirm(`¿Estás seguro de que deseas eliminar "${item.title}"?`)) {
+        catalog = catalog.filter(x => x.id !== id);
+        saveCatalog(catalog);
+        renderGrids();
+        renderAdminTable();
+      }
+    }
+
+    function renderAdminTable(filterQuery = "") {
+      const tbody = document.getElementById("adminTableBody");
+      const q = filterQuery.toLowerCase().trim();
+      const filtered = q
+        ? catalog.filter(x => x.title.toLowerCase().includes(q) || x.year.toLowerCase().includes(q))
+        : catalog;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 24px; color:#888;">No se encontraron elementos.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => `
+        <tr>
+          <td><img src="${encodeURI(item.poster)}" alt="" class="table-thumb" onerror="this.src=''"></td>
+          <td><strong>${escapeHtml(item.title)}</strong></td>
+          <td><span class="card-type-tag">${item.type === "movie" ? "Película" : "Serie"}</span></td>
+          <td>${escapeHtml(item.year)}</td>
+          <td>${item.download ? '<span style="color:#10b981; font-weight:700;">✓ Sí</span>' : '<span style="color:#888;">—</span>'}</td>
+          <td style="text-align:right">
+            <button class="btn-action edit" onclick="editItem('${item.id}')">✏️ Editar</button>
+            <button class="btn-action del" onclick="deleteItem('${item.id}')">🗑️ Borrar</button>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function filterAdminTable() {
+      const q = document.getElementById("adminTableSearch").value;
+      renderAdminTable(q);
+    }
+
+    /* ============================================================
+       EXPORTACIÓN Y DESCARGA PARA NETLIFY
+       ============================================================ */
+    function downloadUpdatedHTML() {
+      // Obtenemos el código fuente HTML actual completo
+      let fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+      // Inyectamos el catálogo actual como DEFAULT_CATALOG permanente
+      const catalogJsonString = JSON.stringify(catalog, null, 6);
+      const catalogRegex = /const DEFAULT_CATALOG = \[[\s\S]*?\];/;
+      const catalogReplacement = `const DEFAULT_CATALOG = ${catalogJsonString};`;
+
+      if (catalogRegex.test(fullHtml)) {
+        fullHtml = fullHtml.replace(catalogRegex, catalogReplacement);
+      }
+
+      // Inyectamos la contraseña actual como DEFAULT_ADMIN_PASS
+      const passRegex = /let DEFAULT_ADMIN_PASS = ".*?";/;
+      const currentPassword = getAdminPassword();
+      const passReplacement = `let DEFAULT_ADMIN_PASS = "${currentPassword.replace(/"/g, '\\"')}";`;
+
+      if (passRegex.test(fullHtml)) {
+        fullHtml = fullHtml.replace(passRegex, passReplacement);
+      }
+
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "index.html";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      alert("✅ ¡Se ha descargado 'index.html'! Súbelo a tu panel de Netlify para que tus películas, series y contraseña queden configuradas de forma permanente.");
+    }
+
+    function exportDataJSON() {
+      const blob = new Blob([JSON.stringify(catalog, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "detodopeliculas-catalogo.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function importDataJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (Array.isArray(imported)) {
+            catalog = imported;
+            saveCatalog(catalog);
+            renderGrids();
+            renderAdminTable();
+            alert("✅ ¡Catálogo importado correctamente!");
+          } else {
+            alert("❌ El formato del archivo JSON no es válido.");
+          }
+        } catch (err) {
+          alert("❌ Error al leer el archivo JSON: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    function resetToFactoryDefaults() {
+      if (confirm("⚠️ ¿Estás seguro de que deseas restablecer el catálogo de fábrica? Esto sobrescribirá los cambios locales.")) {
+        localStorage.removeItem(STORAGE_KEY);
+        catalog = [...DEFAULT_CATALOG];
+        saveCatalog(catalog);
+        renderGrids();
+        renderAdminTable();
+        alert("✅ Catálogo restablecido a los valores predeterminados.");
+      }
+    }
+
+    /* ============================================================
+       MENÚ MÓVIL Y EVENTOS TECLADO
+       ============================================================ */
+    function toggleNav() {
+      document.getElementById("navlinks").classList.toggle("open");
+    }
+    function closeNav() {
+      document.getElementById("navlinks").classList.remove("open");
+    }
+
+    window.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        closeDetailModal();
+        closeAuthModal();
+        closeAdminModal();
+      }
+    });
+
+    // Inicializar renderizado
+    renderGrids();
+  </script>
+
+
+<script async="" src="./Detodopeliculas — Tu mundo del cine_files/hud" data-nf-variant="public" data-netlify-site-id="7f0a78b6-27a8-4eba-94bf-f7c69d1ac638" data-app-host="app.netlify.com"></script>
+<iframe id="nl-badge-frame" title="Powered by Netlify" style="position: fixed; bottom: 0px; right: 0px; border: 0px; margin: 0px; padding: 0px; background: transparent; color-scheme: dark; z-index: 2147483645; width: 197px; height: 64px; clip-path: path(&quot;M 3 3 H 184 V 51 H 3 Z&quot;);" data-nl-ready="1" src="./Detodopeliculas — Tu mundo del cine_files/saved_resource.html"></iframe><div data-v-b007cd="" class=""><!----></div><div id="wp-extension" data-id="dpadflhmiohjfhhaehelneimpllfbpcg"></div><script async="" src="./Detodopeliculas — Tu mundo del cine_files/hud" data-nf-variant="public" data-netlify-site-id="eb355ead-93a8-40d4-a133-102bd5dc075f" data-app-host="app.netlify.com"></script>
+</body></html>
